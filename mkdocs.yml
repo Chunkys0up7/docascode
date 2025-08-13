@@ -1,0 +1,19 @@
+site_name: Dynamic Docs POC
+docs_dir: site_docs
+nav:
+  - Home: index.md
+  - Overview: overview.md
+  - Getting Started: getting-started.md
+  - Concepts:
+      - Knowledge Graph: concepts/knowledge-graph.md
+      - Procedure Generation: concepts/procedure-generation.md
+      - MCP Integration (Concept): concepts/mcp-integration.md
+  - Samples:
+      - Underwriting Demo: samples/underwriting-demo.md
+      - IT Onboarding Demo: samples/it-onboarding-demo.md
+  - Reference: reference/index.md
+  - FAQ: faq.md
+  - Glossary: glossary.md
+  - Changelog: changelog.md
+  - Generated: generated/index.md
+

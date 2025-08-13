@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+
+# Virtual env
+.venv/
+venv/
+
+# Streamlit
+.streamlit/**
+!.streamlit/config.toml
+
+# MkDocs build output
+site/
+
+# OS/editor
+.DS_Store
+.idea/
+.vscode/
+*.log
+
+# Jupyter
+.ipynb_checkpoints/
+
+

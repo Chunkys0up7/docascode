@@ -1,0 +1,4 @@
+id,name,location,first_time_buyer,veteran,property_type
+1,Alice Smith,New Mexico,Yes,No,rural
+2,Bob Jones,Texas,No,Yes,urban
+
