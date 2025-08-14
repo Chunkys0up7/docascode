@@ -28,6 +28,9 @@ STEP_SOURCES: Dict[str, List[SourceItem]] = {
 	"generate-approval-document": [
 		{"title": "Plan notes", "path": "Docs/GPTPlan.txt"},
 	],
+	"check-tx-mortgage-rule-7": [
+		{"title": "Plan notes", "path": "Docs/GPTPlan.txt"},
+	],
 }
 
 

@@ -61,6 +61,16 @@ REFERENCE_CONTENT: dict[str, str] = {
 		"2. Generate document via API\n"
 		"3. QA review and send\n"
 	),
+	"check-tx-mortgage-rule-7": (
+		"# Check TX Mortgage Rule 7\n\n"
+		"Purpose: Ensure TX-specific mortgage rule compliance.\n\n"
+		"Context: Texas\n\n"
+		"System: Regulatory DB\n\n"
+		"## Sub-steps\n"
+		"1. Retrieve latest rule 7 requirements\n"
+		"2. Confirm disclosures present\n"
+		"3. Record compliance evidence\n"
+	),
 }
 
 

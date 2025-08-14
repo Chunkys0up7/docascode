@@ -26,6 +26,9 @@ def build_sample_graph() -> nx.DiGraph:
 		("Check NM Mortgage Rule 12", "process"),
 		("New Mexico", "context"),
 		("Regulatory DB", "system"),
+		# Texas-specific
+		("Check TX Mortgage Rule 7", "process"),
+		("Texas", "context"),
 		("Generate Approval Document", "process"),
 		("Document Gen API", "system"),
 		("Loan Officer", "role"),
@@ -47,6 +50,10 @@ def build_sample_graph() -> nx.DiGraph:
 		("Loan Application", "Check NM Mortgage Rule 12", "requires"),
 		("Check NM Mortgage Rule 12", "New Mexico", "applies_to"),
 		("Check NM Mortgage Rule 12", "Regulatory DB", "requires"),
+		# Texas rule path
+		("Loan Application", "Check TX Mortgage Rule 7", "requires"),
+		("Check TX Mortgage Rule 7", "Texas", "applies_to"),
+		("Check TX Mortgage Rule 7", "Regulatory DB", "requires"),
 		("Loan Application", "Generate Approval Document", "precedes"),
 		("Generate Approval Document", "Document Gen API", "requires"),
 		("Generate Approval Document", "Loan Officer", "performed_by"),

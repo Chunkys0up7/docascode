@@ -315,11 +315,42 @@ else:
 	else:
 		st.info("No specific context derived for this query. The procedure is based on general rules.")
 
-	tab_steps, tab_graph, tab_details = st.tabs(["Procedure Steps", "Graph View", "Details & Traceability"])
+	# Optional role filter derived from step metadata
+	_available_roles: list[str] = []
+	try:
+		for step, _ in annotated:
+			md = get_step_dummy_data(step, graph=graph, context={
+				"location": location,
+				"property_type": property_type,
+				"borrower": st.session_state.get("borrower_name_for_proc", "Alice Smith"),
+				"loan_type": "home_loan",
+			}).get("metadata", {})
+			role_name = md.get("role")
+			if role_name and role_name not in _available_roles:
+				_available_roles.append(role_name)
+	except Exception:
+		pass
+	role_filter = st.multiselect("Filter by role", options=sorted(_available_roles), default=[])
+
+	def _matches_role(step_name: str) -> bool:
+		if not role_filter:
+			return True
+		md = get_step_dummy_data(step_name, graph=graph, context={
+			"location": location,
+			"property_type": property_type,
+			"borrower": st.session_state.get("borrower_name_for_proc", "Alice Smith"),
+			"loan_type": "home_loan",
+		}).get("metadata", {})
+		return md.get("role") in set(role_filter)
+
+	annotated_display = [(s, h) for (s, h) in annotated if _matches_role(s)]
+	steps_display = [s for (s, _h) in annotated_display]
+
+	tab_steps, tab_graph, tab_details, tab_export = st.tabs(["Procedure Steps", "Graph View", "Details & Traceability", "Export"])
 
 	with tab_steps:
 		st.subheader("Generated Steps")
-		for idx, (step, hint) in enumerate(annotated, start=1):
+		for idx, (step, hint) in enumerate(annotated_display, start=1):
 			slug = "".join(ch.lower() if ch.isalnum() else "-" for ch in step).strip("-")
 			docs_base_url = st.session_state.get("docs_base_url", "http://localhost:8000")
 			link_dir = f"{docs_base_url.rstrip('/')}/reference/{slug}/"
@@ -455,10 +486,11 @@ else:
 				for pred in graph.predecessors(n):
 					visible_nodes.add(pred)
 		# Robust Graphviz rendering with backward-compat for older signature
+		highlight = steps_display if role_filter else steps
 		try:
-			dot = build_graphviz_dot(graph, highlight_path=steps, visible_nodes=visible_nodes)
+			dot = build_graphviz_dot(graph, highlight_path=highlight, visible_nodes=visible_nodes)
 		except TypeError:
-			dot = build_graphviz_dot(graph, highlight_path=steps)
+			dot = build_graphviz_dot(graph, highlight_path=highlight)
 		st.graphviz_chart(dot, use_container_width=True)
 
 	with tab_details:
@@ -469,7 +501,7 @@ else:
 		st.markdown("---")
 		st.write("Per-step details, links, and sources:")
 		docs_base_url = st.session_state.get("docs_base_url", "http://localhost:8000")
-		for idx, (step, hint) in enumerate(annotated, start=1):
+		for idx, (step, hint) in enumerate(annotated_display, start=1):
 			slug = "".join(ch.lower() if ch.isalnum() else "-" for ch in step).strip("-")
 			link_dir = f"{docs_base_url.rstrip('/')}/reference/{slug}/"
 			link_html = f"{docs_base_url.rstrip('/')}/reference/{slug}.html"
@@ -528,30 +560,32 @@ else:
 						st.markdown(f"  - [Link]({s['url']})")
 			st.markdown("---")
 
-	st.divider()
-	colA, colB = st.columns([1, 3])
-	with colA:
-		if st.button("Export to MkDocs", use_container_width=True, type="primary"):
-			# Initialize or clear exported_docs cache before export
-			st.session_state["exported_docs"] = {}
-			with st.spinner("Exporting procedure to Markdown..."):
-				outfile = export_procedure_markdown(st.session_state["query_text_for_proc"], annotated)
-				
-				# After successful export, read the generated markdown files into session state
-				for idx, (step, hint) in enumerate(annotated, start=1):
-					slug = "".join(ch.lower() if ch.isalnum() else "-" for ch in step).strip("-")
-					ref_file_path = f"site_docs/reference/{slug}.md"
-					if os.path.exists(ref_file_path):
-						try:
-							with open(ref_file_path, "r", encoding="utf-8") as rf:
-								st.session_state["exported_docs"][slug] = rf.read()
-						except Exception as e:
-							st.session_state["exported_docs"][slug] = f"Error reading file: {e}"
-					else:
-						st.session_state["exported_docs"][slug] = "*(Content not found after export. File may not have been generated.)*"
-				
-				st.success(f"Procedure exported to: `{outfile}`")
-				st.rerun()
+	with tab_export:
+		st.subheader("Export & Links")
+		colA, colB = st.columns([1, 3])
+		with colA:
+			auto_export = st.toggle("Auto-export after generation", value=False, help="When enabled, exporting runs automatically after generating steps.")
+			if st.button("Export to MkDocs", use_container_width=True, type="primary") or auto_export:
+				# Initialize or clear exported_docs cache before export
+				st.session_state["exported_docs"] = {}
+				with st.spinner("Exporting procedure to Markdown..."):
+					outfile = export_procedure_markdown(st.session_state["query_text_for_proc"], annotated)
+					
+					# After successful export, read the generated markdown files into session state
+					for idx, (step, hint) in enumerate(annotated, start=1):
+						slug = "".join(ch.lower() if ch.isalnum() else "-" for ch in step).strip("-")
+						ref_file_path = f"site_docs/reference/{slug}.md"
+						if os.path.exists(ref_file_path):
+							try:
+								with open(ref_file_path, "r", encoding="utf-8") as rf:
+									st.session_state["exported_docs"][slug] = rf.read()
+							except Exception as e:
+								st.session_state["exported_docs"][slug] = f"Error reading file: {e}"
+						else:
+							st.session_state["exported_docs"][slug] = "*(Content not found after export. File may not have been generated.)*"
+					
+					st.success(f"Procedure exported to: `{outfile}`")
+					st.rerun()
 
-	with colB:
-		st.info("Run `mkdocs serve` in your terminal to view the docs site. Exported files appear under the 'Generated' section.")
+		with colB:
+			st.info("Run `mkdocs serve` in your terminal to view the docs site. Exported files appear under the 'Generated' section.")

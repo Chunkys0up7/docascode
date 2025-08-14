@@ -1,9 +1,27 @@
 site_name: Dynamic Docs POC
 docs_dir: site_docs
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - content.code.copy
+site_url: http://127.0.0.1:8000
+repo_url: https://github.com/Chunkys0up7/docascode
+plugins:
+  - search:
+      lang: en
+  - git-authors:
+      show_contribution: true
+  - git-revision-date-localized:
+      enable_creation_date: true
+  - macros: {}
 nav:
   - Home: index.md
   - Overview: overview.md
   - Getting Started: getting-started.md
+  - Implementation Plan: plan.md
+  - Sources:
+      - Converted: source/converted/index.md
   - Concepts:
       - Knowledge Graph: concepts/knowledge-graph.md
       - Procedure Generation: concepts/procedure-generation.md

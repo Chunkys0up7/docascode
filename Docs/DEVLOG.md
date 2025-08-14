@@ -51,6 +51,20 @@ Docs integration:
 - [x] Added inline reference preview in Streamlit under each step
 - [x] Added per-step source mapping (`core/sources.py`) and render Sources section in MkDocs export and in-app Details tab
 
+## 2025-08-14
+
+- [x] Refactored Streamlit UI for business-friendly layout (cards, chips, tabs)
+- [x] Switched graph rendering to Graphviz; added "Relevant only" filter
+- [x] Fixed `core/export_md.py` duplication/indentation; regenerated clean module
+- [x] Export now builds per-step reference pages and refreshes reference index
+- [x] Added MkDocs pages: Overview, Getting Started, Concepts, Samples, FAQ, Glossary, Changelog
+- [x] Published Implementation Plan to `site_docs/plan.md` and added to mkdocs nav
+- [x] Improved Docs links (directory and .html variants) from Streamlit
+- [x] Ensured context filtering removes non-relevant steps (NM vs TX)
+- [ ] Add ingestion script for converting `Docs/*` to `site_docs/source/converted/*`
+- [ ] Add Material theme and recommended plugins to `mkdocs.yml`
+- [ ] Add CI workflow for mkdocs build/link checks and optional Pages deploy
+
 UX polish:
 
 - [x] Introduced card UI for steps with clear sections and spacing
@@ -63,5 +77,31 @@ Dummy data and input UX:
 - [x] Moved input form to main content with larger text area and clearer layout
 - [x] Enriched generic fallback dummy data with structured inputs/outputs, sub-steps, and mock API
 - [x] Replaced raw JSON expander with card layout showing inputs, KPIs, outputs, sub-steps, and API snippet per step
+
+## 2025-08-14 (cont.)
+
+- [x] Added MkDocs Material and plugins to requirements
+- [x] Updated mkdocs.yml with Material theme, repo links, plugins
+- [ ] Install dependencies and verify mkdocs serve renders Material theme
+- [ ] Add scripts/ingest.py scaffold and wire to nav under Sources (converted)
+
+## 2025-08-15
+
+- [x] Implemented ingestion scaffold `scripts/ingest.py` and wired "Sources → Converted"
+- [x] Added Export tab and Auto-export toggle in app
+- [x] Added Texas path to graph (Check TX Mortgage Rule 7) and sources mapping
+- [x] Implemented Graph View "Relevant only" filter and role filter
+- [x] Ensured docs base URL validation and stable links behavior
+- [x] Published implementation plan `site_docs/plan.md`
+
+Next steps:
+- [ ] Add anchors + copy-link for each step title in app
+- [ ] Add role/system filters summary chips and "clear all"
+- [ ] Build CI workflow for MkDocs build and link checks
+- [ ] Expand ingestion to handle PDFs/DOCs via Pandoc where available
+- [ ] Enrich graph with additional states and rules; add unit tests for traversal
+
+- [x] Added ingestion scaffold `scripts/ingest.py` and mkdocs nav entry for Converted Sources
+- [x] Added Auto-export toggle in app for one-click export after generation
 
 
