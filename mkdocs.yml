@@ -34,4 +34,5 @@ nav:
   - Glossary: glossary.md
   - Changelog: changelog.md
   - Generated: generated/index.md
+  - Testing: testing.md
 
