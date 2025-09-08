@@ -18,6 +18,7 @@
                 </div>
                 <ul class="nav-links">
                     <li><a href="#examples">Examples</a></li>
+                    <li><a href="#dynamic-docs">Dynamic Docs</a></li>
                     <li><a href="#ai-integration">AI Integration</a></li>
                     <li><a href="#workflows">Workflows</a></li>
                     <li><a href="#systems-thinking">Systems Thinking</a></li>
@@ -37,8 +38,8 @@
                     following Donella H. Meadows' framework for systemic change
                 </p>
                 <div class="hero-actions">
-                    <button class="btn btn-primary" onclick="scrollToSection('ai-integration')">
-                        Explore AI Features
+                    <button class="btn btn-primary" onclick="scrollToSection('dynamic-docs')">
+                        Try Dynamic Docs
                     </button>
                     <button class="btn btn-secondary" onclick="scrollToSection('examples')">
                         See Real Examples
@@ -190,6 +191,130 @@
                                 <li>Always up-to-date API documentation</li>
                                 <li>Reduced support tickets by 60%</li>
                             </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Documentation Section -->
+        <section id="dynamic-docs" class="section dynamic-docs-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Dynamic Documentation Systems</h2>
+                    <p>Context-aware, graph-based documentation that adapts to user needs and business requirements</p>
+                </div>
+
+                <div class="dynamic-features-grid">
+                    <div class="dynamic-feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3>Graph-Based Procedures</h3>
+                        <p>Documentation structured as interconnected nodes, enabling dynamic path generation based on context</p>
+                        <div class="feature-demo">
+                            <button class="btn btn-primary" onclick="showDynamicDemo('graph-procedures')">
+                                <i class="fas fa-play"></i>
+                                Try Demo
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="dynamic-feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-cog"></i>
+                        </div>
+                        <h3>Context-Aware Generation</h3>
+                        <p>Documentation adapts based on user role, location, property type, and business context</p>
+                        <div class="feature-demo">
+                            <button class="btn btn-primary" onclick="showDynamicDemo('context-aware')">
+                                <i class="fas fa-play"></i>
+                                Try Demo
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="dynamic-feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                        <h3>Rich Metadata & Traceability</h3>
+                        <p>Every documentation element includes inputs, outputs, KPIs, roles, and business guidance</p>
+                        <div class="feature-demo">
+                            <button class="btn btn-primary" onclick="showDynamicDemo('metadata')">
+                                <i class="fas fa-play"></i>
+                                Try Demo
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="dynamic-feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-filter"></i>
+                        </div>
+                        <h3>Role-Based Filtering</h3>
+                        <p>Documentation automatically filters and presents relevant content based on user roles and permissions</p>
+                        <div class="feature-demo">
+                            <button class="btn btn-primary" onclick="showDynamicDemo('role-filtering')">
+                                <i class="fas fa-play"></i>
+                                Try Demo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dynamic-workflow-demo">
+                    <h3>Interactive Procedure Builder</h3>
+                    <p>Experience how dynamic documentation generates context-specific procedures</p>
+                    
+                    <div class="procedure-builder">
+                        <div class="builder-inputs">
+                            <div class="input-group">
+                                <label for="loan-type">Loan Type</label>
+                                <select id="loan-type">
+                                    <option value="home_loan">Home Loan</option>
+                                    <option value="auto_loan">Auto Loan</option>
+                                    <option value="business_loan">Business Loan</option>
+                                </select>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="location">Location</label>
+                                <select id="location">
+                                    <option value="new_mexico">New Mexico</option>
+                                    <option value="texas">Texas</option>
+                                    <option value="california">California</option>
+                                </select>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="property-type">Property Type</label>
+                                <select id="property-type">
+                                    <option value="rural">Rural</option>
+                                    <option value="urban">Urban</option>
+                                    <option value="suburban">Suburban</option>
+                                </select>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="borrower-type">Borrower Type</label>
+                                <select id="borrower-type">
+                                    <option value="first_time_buyer">First-Time Buyer</option>
+                                    <option value="veteran">Veteran</option>
+                                    <option value="repeat_buyer">Repeat Buyer</option>
+                                </select>
+                            </div>
+                            
+                            <button class="btn btn-primary" onclick="generateDynamicProcedure()">
+                                <i class="fas fa-magic"></i>
+                                Generate Procedure
+                            </button>
+                        </div>
+                        
+                        <div class="procedure-output" id="procedure-output" style="display: none;">
+                            <h4>Generated Procedure</h4>
+                            <div class="context-chips" id="context-chips"></div>
+                            <div class="procedure-steps" id="procedure-steps"></div>
                         </div>
                     </div>
                 </div>
