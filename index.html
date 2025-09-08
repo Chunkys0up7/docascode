@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docs as Code: A Systems Thinking Approach</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="hero">
+        <div class="container">
+            <nav class="nav">
+                <div class="nav-brand">
+                    <i class="fas fa-code-branch"></i>
+                    <span>Docs as Code</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#examples">Examples</a></li>
+                    <li><a href="#ai-integration">AI Integration</a></li>
+                    <li><a href="#workflows">Workflows</a></li>
+                    <li><a href="#systems-thinking">Systems Thinking</a></li>
+                    <li><a href="#methodology">Methodology</a></li>
+                    <li><a href="#implementation">Implementation</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                </ul>
+            </nav>
+            
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="highlight">Docs as Code</span><br>
+                    A Systems Thinking Approach
+                </h1>
+                <p class="hero-subtitle">
+                    Understanding documentation as a complex adaptive system, 
+                    following Donella H. Meadows' framework for systemic change
+                </p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary" onclick="scrollToSection('ai-integration')">
+                        Explore AI Features
+                    </button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('examples')">
+                        See Real Examples
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Real-World Examples Section -->
+        <section id="examples" class="section examples-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Real-World Examples</h2>
+                    <p>See how leading organizations implement Docs as Code in practice</p>
+                </div>
+
+                <div class="examples-grid">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <div class="company-logo">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div class="example-info">
+                                <h3>GitHub</h3>
+                                <span class="example-type">Open Source Platform</span>
+                            </div>
+                        </div>
+                        <div class="example-content">
+                            <h4>Challenge</h4>
+                            <p>Managing documentation for 100+ repositories with inconsistent formats and outdated content.</p>
+                            
+                            <h4>Solution</h4>
+                            <div class="workflow-steps">
+                                <div class="workflow-step">
+                                    <span class="step-number">1</span>
+                                    <div class="step-content">
+                                        <strong>Standardized Format:</strong> All docs in Markdown with Jekyll
+                                    </div>
+                                </div>
+                                <div class="workflow-step">
+                                    <span class="step-number">2</span>
+                                    <div class="step-content">
+                                        <strong>Automated Builds:</strong> GitHub Actions for testing and deployment
+                                    </div>
+                                </div>
+                                <div class="workflow-step">
+                                    <span class="step-number">3</span>
+                                    <div class="step-content">
+                                        <strong>Community Contribution:</strong> Pull request workflow for all changes
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h4>Results</h4>
+                            <ul class="results-list">
+                                <li>50% reduction in documentation maintenance time</li>
+                                <li>300% increase in community contributions</li>
+                                <li>Zero broken links across all repositories</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="example-card">
+                        <div class="example-header">
+                            <div class="company-logo">
+                                <i class="fab fa-microsoft"></i>
+                            </div>
+                            <div class="example-info">
+                                <h3>Microsoft</h3>
+                                <span class="example-type">Enterprise Software</span>
+                            </div>
+                        </div>
+                        <div class="example-content">
+                            <h4>Challenge</h4>
+                            <p>Coordinating documentation across multiple product teams with different release cycles.</p>
+                            
+                            <h4>Solution</h4>
+                            <div class="workflow-steps">
+                                <div class="workflow-step">
+                                    <span class="step-number">1</span>
+                                    <div class="step-content">
+                                        <strong>Monorepo Structure:</strong> Single repository for all product docs
+                                    </div>
+                                </div>
+                                <div class="workflow-step">
+                                    <span class="step-number">2</span>
+                                    <div class="step-content">
+                                        <strong>API-First Approach:</strong> Auto-generated docs from OpenAPI specs
+                                    </div>
+                                </div>
+                                <div class="workflow-step">
+                                    <span class="step-number">3</span>
+                                    <div class="step-content">
+                                        <strong>Version Control:</strong> Semantic versioning for all documentation
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h4>Results</h4>
+                            <ul class="results-list">
+                                <li>90% reduction in documentation inconsistencies</li>
+                                <li>Real-time synchronization with code changes</li>
+                                <li>Automated quality checks prevent errors</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="example-card">
+                        <div class="example-header">
+                            <div class="company-logo">
+                                <i class="fab fa-spotify"></i>
+                            </div>
+                            <div class="example-info">
+                                <h3>Spotify</h3>
+                                <span class="example-type">Music Streaming</span>
+                            </div>
+                        </div>
+                        <div class="example-content">
+                            <h4>Challenge</h4>
+                            <p>Maintaining developer documentation for microservices architecture with rapid iteration.</p>
+                            
+                            <h4>Solution</h4>
+                            <div class="workflow-steps">
+                                <div class="workflow-step">
+                                    <span class="step-number">1</span>
+                                    <div class="step-content">
+                                        <strong>Service Documentation:</strong> Each service owns its documentation
+                                    </div>
+                                </div>
+                                <div class="workflow-step">
+                                    <span class="step-number">2</span>
+                                    <div class="step-content">
+                                        <strong>Automated Updates:</strong> CI/CD pipeline updates docs with code
+                                    </div>
+                                </div>
+                                <div class="workflow-step">
+                                    <span class="step-number">3</span>
+                                    <div class="step-content">
+                                        <strong>Centralized Search:</strong> Unified search across all service docs
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h4>Results</h4>
+                            <ul class="results-list">
+                                <li>75% faster onboarding for new developers</li>
+                                <li>Always up-to-date API documentation</li>
+                                <li>Reduced support tickets by 60%</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Integration Section -->
+        <section id="ai-integration" class="section ai-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>AI-Powered Documentation</h2>
+                    <p>Revolutionary AI tools and workflows transforming how we create, maintain, and optimize documentation</p>
+                </div>
+
+                <div class="ai-features-grid">
+                    <div class="ai-feature-card">
+                        <div class="ai-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>Automated Content Generation</h3>
+                        <p>AI generates documentation from code comments, API specs, and user stories</p>
+                        <div class="ai-demo">
+                            <button class="btn btn-primary" onclick="showAIDemo('content-generation')">
+                                <i class="fas fa-play"></i>
+                                Try Demo
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="ai-feature-card">
+                        <div class="ai-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>Intelligent Search & Discovery</h3>
+                        <p>Semantic search that understands context and intent, not just keywords</p>
+                        <div class="ai-demo">
+                            <button class="btn btn-primary" onclick="showAIDemo('intelligent-search')">
+                                <i class="fas fa-play"></i>
+                                Try Demo
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="ai-feature-card">
+                        <div class="ai-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <h3>Smart Translation & Localization</h3>
+                        <p>Automatically translate and adapt content for global audiences</p>
+                        <div class="ai-demo">
+                            <button class="btn btn-primary" onclick="showAIDemo('translation')">
+                                <i class="fas fa-play"></i>
+                                Try Demo
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="ai-feature-card">
+                        <div class="ai-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Quality Optimization</h3>
+                        <p>AI analyzes content for clarity, completeness, and user experience</p>
+                        <div class="ai-demo">
+                            <button class="btn btn-primary" onclick="showAIDemo('quality-analysis')">
+                                <i class="fas fa-play"></i>
+                                Try Demo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ai-tools-showcase">
+                    <h3>Popular AI Documentation Tools</h3>
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <div class="tool-header">
+                                <img src="https://via.placeholder.com/40x40/2563eb/ffffff?text=GPT" alt="OpenAI" class="tool-logo">
+                                <div class="tool-info">
+                                    <h4>OpenAI GPT-4</h4>
+                                    <span class="tool-category">Content Generation</span>
+                                </div>
+                            </div>
+                            <p>Generate comprehensive documentation from code, create tutorials, and answer user questions</p>
+                            <div class="tool-features">
+                                <span class="feature-tag">Code Analysis</span>
+                                <span class="feature-tag">Tutorial Creation</span>
+                                <span class="feature-tag">Q&A Generation</span>
+                            </div>
+                        </div>
+
+                        <div class="tool-card">
+                            <div class="tool-header">
+                                <img src="https://via.placeholder.com/40x40/7c3aed/ffffff?text=GH" alt="GitHub Copilot" class="tool-logo">
+                                <div class="tool-info">
+                                    <h4>GitHub Copilot</h4>
+                                    <span class="tool-category">Code Documentation</span>
+                                </div>
+                            </div>
+                            <p>AI pair programmer that suggests documentation as you write code</p>
+                            <div class="tool-features">
+                                <span class="feature-tag">Inline Comments</span>
+                                <span class="feature-tag">README Generation</span>
+                                <span class="feature-tag">API Docs</span>
+                            </div>
+                        </div>
+
+                        <div class="tool-card">
+                            <div class="tool-header">
+                                <img src="https://via.placeholder.com/40x40/06b6d4/ffffff?text=MD" alt="Mintlify" class="tool-logo">
+                                <div class="tool-info">
+                                    <h4>Mintlify</h4>
+                                    <span class="tool-category">AI Documentation Platform</span>
+                                </div>
+                            </div>
+                            <p>Intelligent documentation platform with AI-powered content optimization</p>
+                            <div class="tool-features">
+                                <span class="feature-tag">Auto-Generated</span>
+                                <span class="feature-tag">Smart Search</span>
+                                <span class="feature-tag">Analytics</span>
+                            </div>
+                        </div>
+
+                        <div class="tool-card">
+                            <div class="tool-header">
+                                <img src="https://via.placeholder.com/40x40/10b981/ffffff?text=SW" alt="Swimm" class="tool-logo">
+                                <div class="tool-info">
+                                    <h4>Swimm</h4>
+                                    <span class="tool-category">Code Documentation</span>
+                                </div>
+                            </div>
+                            <p>AI-powered platform that keeps documentation synchronized with code</p>
+                            <div class="tool-features">
+                                <span class="feature-tag">Auto-Sync</span>
+                                <span class="feature-tag">Code Analysis</span>
+                                <span class="feature-tag">Team Collaboration</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Workflow Examples -->
+        <section id="ai-workflows" class="section ai-workflows-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>AI-Enhanced Workflows</h2>
+                    <p>See how AI transforms traditional documentation processes</p>
+                </div>
+
+                <div class="ai-workflow-tabs">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" onclick="showAIWorkflow('auto-generation')">Auto Generation</button>
+                        <button class="tab-btn" onclick="showAIWorkflow('smart-review')">Smart Review</button>
+                        <button class="tab-btn" onclick="showAIWorkflow('user-assistance')">User Assistance</button>
+                        <button class="tab-btn" onclick="showAIWorkflow('maintenance')">Maintenance</button>
+                    </div>
+
+                    <div id="auto-generation" class="workflow-content active">
+                        <div class="workflow-header">
+                            <h3>AI-Powered Content Generation</h3>
+                            <p>From code to comprehensive documentation in minutes</p>
+                        </div>
+                        
+                        <div class="ai-workflow-diagram">
+                            <div class="workflow-step">
+                                <div class="step-icon ai-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="step-details">
+                                    <h4>1. Code Analysis</h4>
+                                    <p>AI analyzes your codebase, identifying functions, classes, and API endpoints</p>
+                                    <div class="ai-analysis-example">
+                                        <div class="analysis-item">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Found 15 API endpoints</span>
+                                        </div>
+                                        <div class="analysis-item">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Identified 8 data models</span>
+                                        </div>
+                                        <div class="analysis-item">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Detected 3 authentication flows</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="workflow-arrow ai-arrow">
+                                <i class="fas fa-arrow-down"></i>
+                            </div>
+                            
+                            <div class="workflow-step">
+                                <div class="step-icon ai-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <div class="step-details">
+                                    <h4>2. AI Content Generation</h4>
+                                    <p>AI generates comprehensive documentation based on code structure and patterns</p>
+                                    <div class="generated-content">
+                                        <div class="content-preview">
+                                            <h5>Generated API Documentation</h5>
+                                            <div class="api-endpoint">
+                                                <code>GET /api/users/{id}</code>
+                                                <p>Retrieves user information by ID. Returns user object with profile data.</p>
+                                                <div class="parameters">
+                                                    <strong>Parameters:</strong>
+                                                    <ul>
+                                                        <li><code>id</code> (string): User identifier</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="workflow-arrow ai-arrow">
+                                <i class="fas fa-arrow-down"></i>
+                            </div>
+                            
+                            <div class="workflow-step">
+                                <div class="step-icon ai-icon">
+                                    <i class="fas fa-edit"></i>
+                                </div>
+                                <div class="step-details">
+                                    <h4>3. Human Review & Refinement</h4>
+                                    <p>Review AI-generated content and make necessary adjustments</p>
+                                    <div class="review-interface">
+                                        <div class="review-item">
+                                            <div class="ai-suggestion">
+                                                <strong>AI Suggestion:</strong> "Consider adding rate limiting information"
+                                            </div>
+                                            <div class="human-feedback">
+                                                <strong>Human Edit:</strong> Added rate limiting details and examples
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="workflow-arrow ai-arrow">
+                                <i class="fas fa-arrow-down"></i>
+                            </div>
+                            
+                            <div class="workflow-step">
+                                <div class="step-icon ai-icon">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <div class="step-details">
+                                    <h4>4. Automated Deployment</h4>
+                                    <p>AI-optimized documentation automatically deployed with version control</p>
+                                    <div class="deployment-stats">
+                                        <div class="stat">
+                                            <span class="stat-number">95%</span>
+                                            <span class="stat-label">Accuracy</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-number">80%</span>
+                                            <span class="stat-label">Time Saved</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-number">24/7</span>
+                                            <span class="stat-label">Auto-Sync</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="smart-review" class="workflow-content">
+                        <div class="workflow-header">
+                            <h3>AI-Powered Review Process</h3>
+                            <p>Intelligent quality assurance and content optimization</p>
+                        </div>
+                        
+                        <div class="smart-review-workflow">
+                            <div class="review-step">
+                                <h4>1. Automated Quality Analysis</h4>
+                                <div class="quality-metrics">
+                                    <div class="metric">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Clarity Score: 8.5/10</span>
+                                    </div>
+                                    <div class="metric">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                        <span>Completeness: Missing examples</span>
+                                    </div>
+                                    <div class="metric">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Accessibility: WCAG compliant</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="review-step">
+                                <h4>2. Intelligent Suggestions</h4>
+                                <div class="ai-suggestions">
+                                    <div class="suggestion">
+                                        <div class="suggestion-icon">
+                                            <i class="fas fa-lightbulb"></i>
+                                        </div>
+                                        <div class="suggestion-content">
+                                            <strong>Improve Clarity:</strong> "Consider breaking this complex procedure into smaller steps"
+                                        </div>
+                                    </div>
+                                    <div class="suggestion">
+                                        <div class="suggestion-icon">
+                                            <i class="fas fa-plus"></i>
+                                        </div>
+                                        <div class="suggestion-content">
+                                            <strong>Add Examples:</strong> "Users would benefit from a code example here"
+                                        </div>
+                                    </div>
+                                    <div class="suggestion">
+                                        <div class="suggestion-icon">
+                                            <i class="fas fa-link"></i>
+                                        </div>
+                                        <div class="suggestion-content">
+                                            <strong>Cross-Reference:</strong> "Link to related troubleshooting guide"
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="review-step">
+                                <h4>3. Automated Testing</h4>
+                                <div class="test-results">
+                                    <div class="test-item success">
+                                        <i class="fas fa-check"></i>
+                                        <span>All links functional</span>
+                                    </div>
+                                    <div class="test-item success">
+                                        <i class="fas fa-check"></i>
+                                        <span>Code examples compile</span>
+                                    </div>
+                                    <div class="test-item warning">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                        <span>Images need alt text</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="user-assistance" class="workflow-content">
+                        <div class="workflow-header">
+                            <h3>AI User Assistance</h3>
+                            <p>Intelligent help system that understands user context and intent</p>
+                        </div>
+                        
+                        <div class="user-assistance-demo">
+                            <div class="chat-interface">
+                                <div class="chat-header">
+                                    <h4>AI Documentation Assistant</h4>
+                                    <span class="status">Online</span>
+                                </div>
+                                <div class="chat-messages">
+                                    <div class="message user-message">
+                                        <div class="message-content">
+                                            "How do I authenticate with the API?"
+                                        </div>
+                                    </div>
+                                    <div class="message ai-message">
+                                        <div class="message-content">
+                                            <p>I can help you with API authentication! Based on your codebase, you're using OAuth 2.0. Here's how:</p>
+                                            <div class="code-block">
+                                                <pre><code>curl -X POST "https://api.example.com/oauth/token" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "grant_type": "client_credentials",
+    "client_id": "your_client_id",
+    "client_secret": "your_client_secret"
+  }'</code></pre>
+                                            </div>
+                                            <p>Would you like me to show you how to implement this in your specific language?</p>
+                                        </div>
+                                    </div>
+                                    <div class="message user-message">
+                                        <div class="message-content">
+                                            "Yes, show me the Python example"
+                                        </div>
+                                    </div>
+                                    <div class="message ai-message">
+                                        <div class="message-content">
+                                            <div class="code-block">
+                                                <pre><code>import requests
+
+def get_access_token():
+    url = "https://api.example.com/oauth/token"
+    data = {
+        "grant_type": "client_credentials",
+        "client_id": "your_client_id",
+        "client_secret": "your_client_secret"
+    }
+    response = requests.post(url, json=data)
+    return response.json()["access_token"]</code></pre>
+                                            </div>
+                                            <p>This will return an access token you can use for authenticated requests!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chat-input">
+                                    <input type="text" placeholder="Ask me anything about the documentation..." disabled>
+                                    <button class="btn btn-primary" disabled>
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="maintenance" class="workflow-content">
+                        <div class="workflow-header">
+                            <h3>AI-Powered Maintenance</h3>
+                            <p>Automated monitoring and updates to keep documentation current</p>
+                        </div>
+                        
+                        <div class="maintenance-dashboard">
+                            <div class="dashboard-header">
+                                <h4>Documentation Health Dashboard</h4>
+                                <span class="last-updated">Last updated: 2 minutes ago</span>
+                            </div>
+                            
+                            <div class="dashboard-metrics">
+                                <div class="metric-card">
+                                    <div class="metric-icon">
+                                        <i class="fas fa-sync-alt"></i>
+                                    </div>
+                                    <div class="metric-info">
+                                        <span class="metric-value">98%</span>
+                                        <span class="metric-label">Sync Status</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="metric-card">
+                                    <div class="metric-icon">
+                                        <i class="fas fa-link"></i>
+                                    </div>
+                                    <div class="metric-info">
+                                        <span class="metric-value">2</span>
+                                        <span class="metric-label">Broken Links</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="metric-card">
+                                    <div class="metric-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="metric-info">
+                                        <span class="metric-value">5</span>
+                                        <span class="metric-label">Outdated Pages</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="metric-card">
+                                    <div class="metric-icon">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div class="metric-info">
+                                        <span class="metric-value">1,247</span>
+                                        <span class="metric-label">User Queries</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="maintenance-actions">
+                                <div class="action-item">
+                                    <h5>Automated Updates</h5>
+                                    <p>AI detected 3 new API endpoints and automatically generated documentation</p>
+                                    <div class="action-status success">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Completed</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="action-item">
+                                    <h5>Broken Link Detection</h5>
+                                    <p>Found 2 broken links in troubleshooting guide</p>
+                                    <div class="action-status warning">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                        <span>Needs Review</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="action-item">
+                                    <h5>Content Optimization</h5>
+                                    <p>AI suggested improvements for 5 pages based on user feedback</p>
+                                    <div class="action-status info">
+                                        <i class="fas fa-info-circle"></i>
+                                        <span>Pending Review</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workflow Examples Section -->
+        <section id="workflows" class="section workflows-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Practical Workflows</h2>
+                    <p>Step-by-step procedures for common Docs as Code scenarios</p>
+                </div>
+
+                <div class="workflow-tabs">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" onclick="showWorkflow('api-docs')">API Documentation</button>
+                        <button class="tab-btn" onclick="showWorkflow('user-guide')">User Guide</button>
+                        <button class="tab-btn" onclick="showWorkflow('troubleshooting')">Troubleshooting</button>
+                        <button class="tab-btn" onclick="showWorkflow('release-notes')">Release Notes</button>
+                    </div>
+
+                    <div id="api-docs" class="workflow-content active">
+                        <div class="workflow-header">
+                            <h3>API Documentation Workflow</h3>
+                            <p>How to maintain API docs that stay synchronized with code changes</p>
+                        </div>
+                        
+                        <div class="workflow-diagram">
+                            <div class="workflow-step">
+                                <div class="step-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="step-details">
+                                    <h4>1. Code Changes</h4>
+                                    <p>Developer modifies API endpoint or adds new functionality</p>
+                                    <div class="code-example">
+                                        <pre><code>// New endpoint added
+@GET("/api/v2/users/{id}")
+public User getUser(@PathParam("id") String id) {
+    return userService.findById(id);
+}</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="workflow-arrow">
+                                <i class="fas fa-arrow-down"></i>
+                            </div>
+                            
+                            <div class="workflow-step">
+                                <div class="step-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="step-details">
+                                    <h4>2. Documentation Update</h4>
+                                    <p>Update OpenAPI specification or Markdown documentation</p>
+                                    <div class="code-example">
+                                        <pre><code>## Get User by ID
+
+**Endpoint:** `GET /api/v2/users/{id}`
+
+**Parameters:**
+- `id` (path): User identifier
+
+**Response:**
+```json
+{
+  "id": "123",
+  "name": "John Doe",
+  "email": "john@example.com"
+}
+```</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="workflow-arrow">
+                                <i class="fas fa-arrow-down"></i>
+                            </div>
+                            
+                            <div class="workflow-step">
+                                <div class="step-icon">
+                                    <i class="fas fa-code-branch"></i>
+                                </div>
+                                <div class="step-details">
+                                    <h4>3. Pull Request</h4>
+                                    <p>Create PR with both code and documentation changes</p>
+                                    <div class="pr-example">
+                                        <div class="pr-header">
+                                            <strong>feat: Add user lookup endpoint</strong>
+                                        </div>
+                                        <div class="pr-files">
+                                            <span class="file-added">+ src/main/java/UserController.java</span>
+                                            <span class="file-added">+ docs/api/users.md</span>
+                                            <span class="file-modified">~ docs/api/openapi.yaml</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="workflow-arrow">
+                                <i class="fas fa-arrow-down"></i>
+                            </div>
+                            
+                            <div class="workflow-step">
+                                <div class="step-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="step-details">
+                                    <h4>4. Automated Testing</h4>
+                                    <p>CI pipeline runs documentation tests</p>
+                                    <div class="test-results">
+                                        <div class="test-item success">
+                                            <i class="fas fa-check"></i>
+                                            <span>Link validation passed</span>
+                                        </div>
+                                        <div class="test-item success">
+                                            <i class="fas fa-check"></i>
+                                            <span>OpenAPI schema validation passed</span>
+                                        </div>
+                                        <div class="test-item success">
+                                            <i class="fas fa-check"></i>
+                                            <span>Build successful</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="workflow-arrow">
+                                <i class="fas fa-arrow-down"></i>
+                            </div>
+                            
+                            <div class="workflow-step">
+                                <div class="step-icon">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <div class="step-details">
+                                    <h4>5. Deployment</h4>
+                                    <p>Documentation automatically deployed to staging/production</p>
+                                    <div class="deployment-info">
+                                        <div class="deploy-step">
+                                            <strong>Staging:</strong> docs-staging.company.com
+                                        </div>
+                                        <div class="deploy-step">
+                                            <strong>Production:</strong> docs.company.com
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="user-guide" class="workflow-content">
+                        <div class="workflow-header">
+                            <h3>User Guide Workflow</h3>
+                            <p>Creating and maintaining user-facing documentation</p>
+                        </div>
+                        
+                        <div class="workflow-steps-simple">
+                            <div class="simple-step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Identify User Need</h4>
+                                    <p>Support ticket or user feedback indicates missing documentation</p>
+                                    <div class="example-box">
+                                        <strong>Example:</strong> "Users can't figure out how to set up two-factor authentication"
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="simple-step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Create Content</h4>
+                                    <p>Write step-by-step guide with screenshots and examples</p>
+                                    <div class="example-box">
+                                        <strong>Format:</strong> Markdown with embedded images and code blocks
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="simple-step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Review Process</h4>
+                                    <p>Technical writer and product manager review for accuracy</p>
+                                    <div class="example-box">
+                                        <strong>Checklist:</strong> Clarity, accuracy, completeness, user experience
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="simple-step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>User Testing</h4>
+                                    <p>Test with actual users to ensure instructions work</p>
+                                    <div class="example-box">
+                                        <strong>Method:</strong> Usability testing with 5-10 users
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="simple-step">
+                                <div class="step-number">5</div>
+                                <div class="step-content">
+                                    <h4>Publish & Monitor</h4>
+                                    <p>Deploy documentation and track user engagement</p>
+                                    <div class="example-box">
+                                        <strong>Metrics:</strong> Page views, time on page, support ticket reduction
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="troubleshooting" class="workflow-content">
+                        <div class="workflow-header">
+                            <h3>Troubleshooting Guide Workflow</h3>
+                            <p>Creating comprehensive troubleshooting documentation</p>
+                        </div>
+                        
+                        <div class="troubleshooting-workflow">
+                            <div class="troubleshooting-step">
+                                <h4>1. Collect Common Issues</h4>
+                                <div class="issue-sources">
+                                    <div class="source">
+                                        <i class="fas fa-ticket-alt"></i>
+                                        <span>Support tickets</span>
+                                    </div>
+                                    <div class="source">
+                                        <i class="fas fa-comments"></i>
+                                        <span>Community forums</span>
+                                    </div>
+                                    <div class="source">
+                                        <i class="fas fa-bug"></i>
+                                        <span>Bug reports</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="troubleshooting-step">
+                                <h4>2. Categorize Problems</h4>
+                                <div class="problem-categories">
+                                    <div class="category">
+                                        <strong>Installation Issues</strong>
+                                        <ul>
+                                            <li>Dependency conflicts</li>
+                                            <li>Permission errors</li>
+                                            <li>Environment setup</li>
+                                        </ul>
+                                    </div>
+                                    <div class="category">
+                                        <strong>Configuration Problems</strong>
+                                        <ul>
+                                            <li>Missing environment variables</li>
+                                            <li>Incorrect settings</li>
+                                            <li>Network connectivity</li>
+                                        </ul>
+                                    </div>
+                                    <div class="category">
+                                        <strong>Runtime Errors</strong>
+                                        <ul>
+                                            <li>Memory issues</li>
+                                            <li>Timeout errors</li>
+                                            <li>API failures</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="troubleshooting-step">
+                                <h4>3. Create Solutions</h4>
+                                <div class="solution-template">
+                                    <div class="template-header">
+                                        <strong>Problem:</strong> [Clear description of the issue]
+                                    </div>
+                                    <div class="template-body">
+                                        <div class="template-section">
+                                            <strong>Symptoms:</strong>
+                                            <ul>
+                                                <li>Error messages</li>
+                                                <li>Unexpected behavior</li>
+                                                <li>Performance issues</li>
+                                            </ul>
+                                        </div>
+                                        <div class="template-section">
+                                            <strong>Solution:</strong>
+                                            <ol>
+                                                <li>Step-by-step instructions</li>
+                                                <li>Code examples</li>
+                                                <li>Configuration changes</li>
+                                            </ol>
+                                        </div>
+                                        <div class="template-section">
+                                            <strong>Prevention:</strong>
+                                            <p>How to avoid this issue in the future</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="release-notes" class="workflow-content">
+                        <div class="workflow-header">
+                            <h3>Release Notes Workflow</h3>
+                            <p>Automated generation of release documentation</p>
+                        </div>
+                        
+                        <div class="release-workflow">
+                            <div class="release-step">
+                                <h4>1. Commit Message Standards</h4>
+                                <div class="commit-examples">
+                                    <div class="commit-example">
+                                        <code>feat: Add user authentication endpoint</code>
+                                        <span class="commit-type">New Feature</span>
+                                    </div>
+                                    <div class="commit-example">
+                                        <code>fix: Resolve memory leak in data processing</code>
+                                        <span class="commit-type">Bug Fix</span>
+                                    </div>
+                                    <div class="commit-example">
+                                        <code>docs: Update API documentation</code>
+                                        <span class="commit-type">Documentation</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="release-step">
+                                <h4>2. Automated Collection</h4>
+                                <div class="automation-process">
+                                    <div class="process-step">
+                                        <i class="fas fa-git-alt"></i>
+                                        <span>Git log parsing</span>
+                                    </div>
+                                    <div class="process-arrow">→</div>
+                                    <div class="process-step">
+                                        <i class="fas fa-tags"></i>
+                                        <span>Version tagging</span>
+                                    </div>
+                                    <div class="process-arrow">→</div>
+                                    <div class="process-step">
+                                        <i class="fas fa-file-alt"></i>
+                                        <span>Markdown generation</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="release-step">
+                                <h4>3. Generated Output</h4>
+                                <div class="release-example">
+                                    <div class="release-header">
+                                        <h5>Version 2.1.0 - January 15, 2024</h5>
+                                    </div>
+                                    <div class="release-content">
+                                        <div class="release-section">
+                                            <h6>🚀 New Features</h6>
+                                            <ul>
+                                                <li>Added user authentication endpoint</li>
+                                                <li>Implemented two-factor authentication</li>
+                                                <li>Added bulk user import functionality</li>
+                                            </ul>
+                                        </div>
+                                        <div class="release-section">
+                                            <h6>🐛 Bug Fixes</h6>
+                                            <ul>
+                                                <li>Resolved memory leak in data processing</li>
+                                                <li>Fixed timeout issues with large datasets</li>
+                                                <li>Corrected user permission validation</li>
+                                            </ul>
+                                        </div>
+                                        <div class="release-section">
+                                            <h6>📚 Documentation</h6>
+                                            <ul>
+                                                <li>Updated API documentation</li>
+                                                <li>Added troubleshooting guide</li>
+                                                <li>Improved setup instructions</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Systems Thinking Framework Section -->
+        <section id="systems-thinking" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Systems Thinking Framework</h2>
+                    <p>Applying Donella H. Meadows' methodology to understand Docs as Code as a complex adaptive system</p>
+                </div>
+
+                <div class="systems-grid">
+                    <div class="system-card" data-level="12">
+                        <div class="card-header">
+                            <span class="level-number">12</span>
+                            <h3>Paradigms</h3>
+                        </div>
+                        <div class="card-content">
+                            <p><strong>Core Belief:</strong> Documentation is a first-class citizen in software development</p>
+                            <div class="paradigm-shift">
+                                <div class="old-paradigm">
+                                    <i class="fas fa-times-circle"></i>
+                                    <span>Documentation is an afterthought</span>
+                                </div>
+                                <div class="arrow">→</div>
+                                <div class="new-paradigm">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Documentation is integral to development</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="system-card" data-level="11">
+                        <div class="card-header">
+                            <span class="level-number">11</span>
+                            <h3>Goals</h3>
+                        </div>
+                        <div class="card-content">
+                            <p><strong>System Purpose:</strong> Create maintainable, collaborative, and automated documentation</p>
+                            <ul class="goals-list">
+                                <li>Version-controlled content</li>
+                                <li>Automated testing & deployment</li>
+                                <li>Collaborative workflows</li>
+                                <li>Continuous integration</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="system-card" data-level="10">
+                        <div class="card-header">
+                            <span class="level-number">10</span>
+                            <h3>Self-Organization</h3>
+                        </div>
+                        <div class="card-content">
+                            <p><strong>Emergent Behavior:</strong> Documentation evolves through community contribution</p>
+                            <div class="self-org-examples">
+                                <div class="example">
+                                    <i class="fas fa-users"></i>
+                                    <span>Community-driven content</span>
+                                </div>
+                                <div class="example">
+                                    <i class="fas fa-sync"></i>
+                                    <span>Self-updating references</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="system-card" data-level="9">
+                        <div class="card-header">
+                            <span class="level-number">9</span>
+                            <h3>System Rules</h3>
+                        </div>
+                        <div class="card-content">
+                            <p><strong>Governance:</strong> Policies that shape documentation behavior</p>
+                            <ul class="rules-list">
+                                <li>All changes require pull requests</li>
+                                <li>Automated testing before merge</li>
+                                <li>Plain text formats only</li>
+                                <li>Version control for all content</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="system-card" data-level="8">
+                        <div class="card-header">
+                            <span class="level-number">8</span>
+                            <h3>Information Flows</h3>
+                        </div>
+                        <div class="card-content">
+                            <p><strong>Communication:</strong> How information moves through the system</p>
+                            <div class="flow-diagram">
+                                <div class="flow-item">Code Changes</div>
+                                <div class="flow-arrow">→</div>
+                                <div class="flow-item">Documentation Updates</div>
+                                <div class="flow-arrow">→</div>
+                                <div class="flow-item">User Feedback</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="system-card" data-level="7">
+                        <div class="card-header">
+                            <span class="level-number">7</span>
+                            <h3>Feedback Loops</h3>
+                        </div>
+                        <div class="card-content">
+                            <p><strong>System Dynamics:</strong> Reinforcing and balancing loops</p>
+                            <div class="feedback-loops">
+                                <div class="loop reinforcing">
+                                    <h4>Reinforcing Loop</h4>
+                                    <p>Better docs → More contributors → Better docs</p>
+                                </div>
+                                <div class="loop balancing">
+                                    <h4>Balancing Loop</h4>
+                                    <p>Complexity → Automation → Reduced complexity</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="system-card" data-level="6">
+                        <div class="card-header">
+                            <span class="level-number">6</span>
+                            <h3>Structure</h3>
+                        </div>
+                        <div class="card-content">
+                            <p><strong>Physical Arrangement:</strong> How components are organized</p>
+                            <div class="structure-diagram">
+                                <div class="structure-item">
+                                    <i class="fas fa-folder"></i>
+                                    <span>Repository Structure</span>
+                                </div>
+                                <div class="structure-item">
+                                    <i class="fas fa-sitemap"></i>
+                                    <span>Content Hierarchy</span>
+                                </div>
+                                <div class="structure-item">
+                                    <i class="fas fa-cogs"></i>
+                                    <span>Build Pipeline</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="system-card" data-level="5">
+                        <div class="card-header">
+                            <span class="level-number">5</span>
+                            <h3>Delays</h3>
+                        </div>
+                        <div class="card-content">
+                            <p><strong>Time Lags:</strong> Delays in system responses</p>
+                            <ul class="delays-list">
+                                <li>Review process time</li>
+                                <li>Build and deployment cycles</li>
+                                <li>Learning curve for new contributors</li>
+                                <li>Feedback incorporation delays</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="system-card" data-level="4">
+                        <div class="card-header">
+                            <span class="level-number">4</span>
+                            <h3>Stocks & Flows</h3>
+                        </div>
+                        <div class="card-content">
+                            <p><strong>Accumulation:</strong> What builds up and what flows through</p>
+                            <div class="stocks-flows">
+                                <div class="stock">
+                                    <h4>Stocks (Accumulations)</h4>
+                                    <ul>
+                                        <li>Documentation content</li>
+                                        <li>Community knowledge</li>
+                                        <li>Tool expertise</li>
+                                    </ul>
+                                </div>
+                                <div class="flow">
+                                    <h4>Flows (Rates)</h4>
+                                    <ul>
+                                        <li>Content creation rate</li>
+                                        <li>Review throughput</li>
+                                        <li>Deployment frequency</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="system-card" data-level="3">
+                        <div class="card-header">
+                            <span class="level-number">3</span>
+                            <h3>Driving Forces</h3>
+                        </div>
+                        <div class="card-content">
+                            <p><strong>External Influences:</strong> Forces that drive system behavior</p>
+                            <div class="driving-forces">
+                                <div class="force positive">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>Developer productivity needs</span>
+                                </div>
+                                <div class="force positive">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>Quality standards</span>
+                                </div>
+                                <div class="force negative">
+                                    <i class="fas fa-arrow-down"></i>
+                                    <span>Technical complexity</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="system-card" data-level="2">
+                        <div class="card-header">
+                            <span class="level-number">2</span>
+                            <h3>System Behavior</h3>
+                        </div>
+                        <div class="card-content">
+                            <p><strong>Patterns:</strong> Observable behaviors over time</p>
+                            <div class="behavior-patterns">
+                                <div class="pattern">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>Exponential growth in contributors</span>
+                                </div>
+                                <div class="pattern">
+                                    <i class="fas fa-sync-alt"></i>
+                                    <span>Cyclical review cycles</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="system-card" data-level="1">
+                        <div class="card-header">
+                            <span class="level-number">1</span>
+                            <h3>Events</h3>
+                        </div>
+                        <div class="card-content">
+                            <p><strong>Observable Occurrences:</strong> Specific incidents and milestones</p>
+                            <div class="events-timeline">
+                                <div class="event">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Pull request submitted</span>
+                                </div>
+                                <div class="event">
+                                    <i class="fas fa-check"></i>
+                                    <span>Review approved</span>
+                                </div>
+                                <div class="event">
+                                    <i class="fas fa-rocket"></i>
+                                    <span>Documentation deployed</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Methodology Section -->
+        <section id="methodology" class="section methodology-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Docs as Code Methodology</h2>
+                    <p>Practical implementation of systems thinking principles in documentation practices</p>
+                </div>
+
+                <div class="methodology-grid">
+                    <div class="method-card">
+                        <div class="method-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Version Control</h3>
+                        <p>Treat documentation like code with Git-based workflows, branching strategies, and collaborative development practices.</p>
+                        <ul class="method-features">
+                            <li>Git repositories for all content</li>
+                            <li>Branch-based development</li>
+                            <li>Pull request reviews</li>
+                            <li>Semantic versioning</li>
+                        </ul>
+                    </div>
+
+                    <div class="method-card">
+                        <div class="method-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3>Plain Text Formats</h3>
+                        <p>Use markup languages like Markdown, reStructuredText, or AsciiDoc for content creation and storage.</p>
+                        <ul class="method-features">
+                            <li>Markdown for simplicity</li>
+                            <li>reStructuredText for complexity</li>
+                            <li>AsciiDoc for enterprise</li>
+                            <li>Tool independence</li>
+                        </ul>
+                    </div>
+
+                    <div class="method-card">
+                        <div class="method-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Automation</h3>
+                        <p>Integrate documentation builds into CI/CD pipelines for automated testing, building, and deployment.</p>
+                        <ul class="method-features">
+                            <li>Automated builds</li>
+                            <li>Link checking</li>
+                            <li>Style validation</li>
+                            <li>Deployment automation</li>
+                        </ul>
+                    </div>
+
+                    <div class="method-card">
+                        <div class="method-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Collaboration</h3>
+                        <p>Enable team-wide contribution through review processes, clear workflows, and inclusive practices.</p>
+                        <ul class="method-features">
+                            <li>Peer review processes</li>
+                            <li>Clear contribution guidelines</li>
+                            <li>Community involvement</li>
+                            <li>Knowledge sharing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Implementation Section -->
+        <section id="implementation" class="section implementation-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Implementation Framework</h2>
+                    <p>Step-by-step guide to adopting Docs as Code using systems thinking principles</p>
+                </div>
+
+                <div class="implementation-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Assess Current System</h3>
+                            <p>Map your existing documentation system using Meadows' 12 leverage points to identify bottlenecks and opportunities.</p>
+                            <div class="step-actions">
+                                <button class="btn btn-outline" onclick="toggleAssessment()">
+                                    <i class="fas fa-clipboard-list"></i>
+                                    Assessment Checklist
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Design New Paradigm</h3>
+                            <p>Shift from "documentation as afterthought" to "documentation as first-class citizen" mindset.</p>
+                            <div class="step-actions">
+                                <button class="btn btn-outline" onclick="toggleParadigm()">
+                                    <i class="fas fa-lightbulb"></i>
+                                    Paradigm Shift Guide
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Establish System Rules</h3>
+                            <p>Create governance policies that support collaborative, automated documentation workflows.</p>
+                            <div class="step-actions">
+                                <button class="btn btn-outline" onclick="toggleRules()">
+                                    <i class="fas fa-gavel"></i>
+                                    Policy Templates
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Build Information Flows</h3>
+                            <p>Design communication channels and feedback loops between developers, writers, and users.</p>
+                            <div class="step-actions">
+                                <button class="btn btn-outline" onclick="toggleFlows()">
+                                    <i class="fas fa-project-diagram"></i>
+                                    Flow Diagrams
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h3>Implement Tools & Structure</h3>
+                            <p>Choose and configure tools that support your new documentation system architecture.</p>
+                            <div class="step-actions">
+                                <button class="btn btn-outline" onclick="toggleTools()">
+                                    <i class="fas fa-tools"></i>
+                                    Tool Selection Guide
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">6</div>
+                        <div class="step-content">
+                            <h3>Monitor & Adapt</h3>
+                            <p>Continuously monitor system behavior and adapt based on feedback and changing needs.</p>
+                            <div class="step-actions">
+                                <button class="btn btn-outline" onclick="toggleMonitoring()">
+                                    <i class="fas fa-chart-line"></i>
+                                    Monitoring Framework
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section id="resources" class="section resources-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Resources & Further Reading</h2>
+                    <p>Essential materials for understanding and implementing Docs as Code through systems thinking</p>
+                </div>
+
+                <div class="resources-grid">
+                    <div class="resource-category">
+                        <h3><i class="fas fa-book"></i> Systems Thinking</h3>
+                        <ul class="resource-list">
+                            <li><a href="#" target="_blank">"Thinking in Systems" by Donella H. Meadows</a></li>
+                            <li><a href="#" target="_blank">"The Fifth Discipline" by Peter Senge</a></li>
+                            <li><a href="#" target="_blank">"Systems Thinking for Social Change" by David Peter Stroh</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="resource-category">
+                        <h3><i class="fas fa-code"></i> Docs as Code</h3>
+                        <ul class="resource-list">
+                            <li><a href="#" target="_blank">"Docs Like Code" by Anne Gentle</a></li>
+                            <li><a href="#" target="_blank">Write the Docs Community</a></li>
+                            <li><a href="#" target="_blank">GitHub's Documentation Guidelines</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="resource-category">
+                        <h3><i class="fas fa-tools"></i> Tools & Platforms</h3>
+                        <ul class="resource-list">
+                            <li><a href="#" target="_blank">Hugo Static Site Generator</a></li>
+                            <li><a href="#" target="_blank">MkDocs Documentation</a></li>
+                            <li><a href="#" target="_blank">GitBook Platform</a></li>
+                            <li><a href="#" target="_blank">Sphinx Documentation</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="resource-category">
+                        <h3><i class="fas fa-users"></i> Communities</h3>
+                        <ul class="resource-list">
+                            <li><a href="#" target="_blank">Write the Docs Slack</a></li>
+                            <li><a href="#" target="_blank">Technical Writing Subreddit</a></li>
+                            <li><a href="#" target="_blank">Documentation Engineering Group</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Docs as Code</h4>
+                    <p>Understanding documentation through systems thinking</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#systems-thinking">Systems Thinking</a></li>
+                        <li><a href="#methodology">Methodology</a></li>
+                        <li><a href="#implementation">Implementation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Docs as Code. Built with systems thinking principles.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals for interactive content -->
+    <div id="assessment-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="toggleAssessment()">&times;</span>
+            <h2>System Assessment Checklist</h2>
+            <div class="checklist">
+                <div class="checklist-item">
+                    <input type="checkbox" id="current-docs">
+                    <label for="current-docs">Map current documentation structure</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="stakeholders">
+                    <label for="stakeholders">Identify all stakeholders</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="pain-points">
+                    <label for="pain-points">Document pain points and bottlenecks</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="tools-audit">
+                    <label for="tools-audit">Audit current tools and workflows</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="feedback-loops">
+                    <label for="feedback-loops">Analyze existing feedback loops</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
