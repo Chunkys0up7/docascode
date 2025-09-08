@@ -868,6 +868,405 @@ function analyzeQuality() {
     }
 }
 
+// Dynamic Documentation Functions
+function showDynamicDemo(demoType) {
+    const demos = {
+        'graph-procedures': {
+            title: 'Graph-Based Procedures Demo',
+            content: `
+                <div class="demo-content">
+                    <h3>Interactive Graph Visualization</h3>
+                    <div class="graph-demo">
+                        <div class="graph-controls">
+                            <label>Select Procedure Type:</label>
+                            <select id="procedure-type">
+                                <option value="loan_underwriting">Loan Underwriting</option>
+                                <option value="risk_assessment">Risk Assessment</option>
+                                <option value="compliance_check">Compliance Check</option>
+                            </select>
+                        </div>
+                        <div class="graph-visualization">
+                            <div class="graph-node start">Start</div>
+                            <div class="graph-arrow">→</div>
+                            <div class="graph-node process">Verify Credit Score</div>
+                            <div class="graph-arrow">→</div>
+                            <div class="graph-node decision">Score > 650?</div>
+                            <div class="graph-branch">
+                                <div class="branch-yes">Yes → Request Appraisal</div>
+                                <div class="branch-no">No → Reject Application</div>
+                            </div>
+                        </div>
+                        <div class="graph-metadata">
+                            <h4>Graph Properties:</h4>
+                            <ul>
+                                <li><strong>Nodes:</strong> 8 procedure steps</li>
+                                <li><strong>Edges:</strong> 12 decision paths</li>
+                                <li><strong>Context:</strong> Rural property, New Mexico</li>
+                                <li><strong>Complexity:</strong> Medium</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            `
+        },
+        'context-aware': {
+            title: 'Context-Aware Generation Demo',
+            content: `
+                <div class="demo-content">
+                    <h3>Dynamic Content Based on Context</h3>
+                    <div class="context-demo">
+                        <div class="context-inputs">
+                            <div class="input-row">
+                                <label>Location:</label>
+                                <select id="demo-location">
+                                    <option value="new_mexico">New Mexico</option>
+                                    <option value="texas">Texas</option>
+                                    <option value="california">California</option>
+                                </select>
+                            </div>
+                            <div class="input-row">
+                                <label>Property Type:</label>
+                                <select id="demo-property">
+                                    <option value="rural">Rural</option>
+                                    <option value="urban">Urban</option>
+                                    <option value="suburban">Suburban</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-primary" onclick="updateContextDemo()">
+                                Update Context
+                            </button>
+                        </div>
+                        <div class="context-output" id="context-output">
+                            <h4>Generated Content:</h4>
+                            <div class="context-specific-content">
+                                <h5>New Mexico Rural Property Procedure</h5>
+                                <ul>
+                                    <li>Verify rural property appraisal requirements</li>
+                                    <li>Check NM mortgage rule 12 compliance</li>
+                                    <li>Validate USDA loan eligibility</li>
+                                    <li>Confirm property meets rural development criteria</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `
+        },
+        'metadata': {
+            title: 'Rich Metadata & Traceability Demo',
+            content: `
+                <div class="demo-content">
+                    <h3>Comprehensive Step Metadata</h3>
+                    <div class="metadata-demo">
+                        <div class="step-example">
+                            <h4>Step: Verify Credit Score</h4>
+                            <div class="metadata-grid">
+                                <div class="metadata-section">
+                                    <h5>Inputs</h5>
+                                    <ul>
+                                        <li>Borrower SSN</li>
+                                        <li>Credit Bureau Access</li>
+                                        <li>Identity Verification</li>
+                                    </ul>
+                                </div>
+                                <div class="metadata-section">
+                                    <h5>Outputs</h5>
+                                    <ul>
+                                        <li>Credit Score Report</li>
+                                        <li>Risk Assessment</li>
+                                        <li>Decision Recommendation</li>
+                                    </ul>
+                                </div>
+                                <div class="metadata-section">
+                                    <h5>KPIs</h5>
+                                    <ul>
+                                        <li>Processing Time: 5 min</li>
+                                        <li>Accuracy Rate: 99.8%</li>
+                                        <li>Cost per Check: $2.50</li>
+                                    </ul>
+                                </div>
+                                <div class="metadata-section">
+                                    <h5>Business Rules</h5>
+                                    <ul>
+                                        <li>Minimum score: 650</li>
+                                        <li>Max inquiries: 3 per month</li>
+                                        <li>Required documentation</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `
+        },
+        'role-filtering': {
+            title: 'Role-Based Filtering Demo',
+            content: `
+                <div class="demo-content">
+                    <h3>Dynamic Content Filtering</h3>
+                    <div class="role-demo">
+                        <div class="role-selector">
+                            <label>Select User Role:</label>
+                            <select id="user-role" onchange="filterByRole()">
+                                <option value="underwriter">Underwriter</option>
+                                <option value="loan_officer">Loan Officer</option>
+                                <option value="compliance_officer">Compliance Officer</option>
+                                <option value="appraiser">Appraiser</option>
+                            </select>
+                        </div>
+                        <div class="filtered-content" id="filtered-content">
+                            <h4>Underwriter View</h4>
+                            <div class="role-specific-steps">
+                                <div class="step-item">✓ Verify Credit Score</div>
+                                <div class="step-item">✓ Analyze Debt-to-Income Ratio</div>
+                                <div class="step-item">✓ Review Employment History</div>
+                                <div class="step-item">✓ Assess Property Value</div>
+                                <div class="step-item muted">○ Request Appraisal (Appraiser)</div>
+                                <div class="step-item muted">○ Compliance Check (Compliance Officer)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `
+        }
+    };
+    
+    const demo = demos[demoType];
+    if (!demo) return;
+    
+    // Create modal for demo
+    const modal = document.createElement('div');
+    modal.className = 'modal';
+    modal.innerHTML = `
+        <div class="modal-content dynamic-demo-modal">
+            <span class="close" onclick="this.parentElement.parentElement.remove()">&times;</span>
+            <h2>${demo.title}</h2>
+            ${demo.content}
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+    modal.style.display = 'block';
+    
+    // Animate in
+    setTimeout(() => {
+        modal.classList.add('show');
+    }, 10);
+}
+
+function generateDynamicProcedure() {
+    const loanType = document.getElementById('loan-type').value;
+    const location = document.getElementById('location').value;
+    const propertyType = document.getElementById('property-type').value;
+    const borrowerType = document.getElementById('borrower-type').value;
+    
+    // Generate context chips
+    const contextChips = document.getElementById('context-chips');
+    contextChips.innerHTML = `
+        <span class="context-chip"><strong>Loan:</strong> ${loanType.replace('_', ' ')}</span>
+        <span class="context-chip"><strong>Location:</strong> ${location.replace('_', ' ')}</span>
+        <span class="context-chip"><strong>Property:</strong> ${propertyType}</span>
+        <span class="context-chip"><strong>Borrower:</strong> ${borrowerType.replace('_', ' ')}</span>
+    `;
+    
+    // Generate procedure steps based on context
+    const procedureSteps = document.getElementById('procedure-steps');
+    const steps = generateStepsForContext(loanType, location, propertyType, borrowerType);
+    
+    procedureSteps.innerHTML = steps.map((step, index) => `
+        <div class="procedure-step">
+            <div class="step-header">
+                <div class="step-number">${index + 1}</div>
+                <div class="step-title">${step.title}</div>
+                <div class="step-duration">${step.duration}</div>
+            </div>
+            <div class="step-metadata">
+                <span class="metadata-tag role">${step.role}</span>
+                <span class="metadata-tag system">${step.system}</span>
+            </div>
+            <div class="step-details">
+                <div class="detail-section">
+                    <h5>Inputs</h5>
+                    <ul>
+                        ${step.inputs.map(input => `<li>${input}</li>`).join('')}
+                    </ul>
+                </div>
+                <div class="detail-section">
+                    <h5>Outputs</h5>
+                    <ul>
+                        ${step.outputs.map(output => `<li>${output}</li>`).join('')}
+                    </ul>
+                </div>
+                <div class="detail-section">
+                    <h5>KPIs</h5>
+                    <ul>
+                        ${step.kpis.map(kpi => `<li>${kpi}</li>`).join('')}
+                    </ul>
+                </div>
+            </div>
+            <div class="business-guidance">
+                <h5>Business Guidance</h5>
+                <ul>
+                    ${step.guidance.map(guidance => `<li>${guidance}</li>`).join('')}
+                </ul>
+            </div>
+        </div>
+    `).join('');
+    
+    // Show the output
+    const output = document.getElementById('procedure-output');
+    output.style.display = 'block';
+    output.scrollIntoView({ behavior: 'smooth' });
+}
+
+function generateStepsForContext(loanType, location, propertyType, borrowerType) {
+    // Base steps for home loan
+    const baseSteps = [
+        {
+            title: "Verify Credit Score",
+            duration: "5 min",
+            role: "Underwriter",
+            system: "Credit Bureau",
+            inputs: ["Borrower SSN", "Identity Verification"],
+            outputs: ["Credit Report", "Risk Score"],
+            kpis: ["Processing Time: 5 min", "Accuracy: 99.8%"],
+            guidance: ["Confirm identity before retrieving credit data", "Proceed only if score meets program threshold"]
+        },
+        {
+            title: "Request Appraisal",
+            duration: "2-3 days",
+            role: "Appraiser",
+            system: "Appraisal Management",
+            inputs: ["Property Address", "Loan Amount"],
+            outputs: ["Appraisal Report", "Property Value"],
+            kpis: ["Turnaround Time: 2-3 days", "Cost: $500-800"],
+            guidance: ["Validate property address and parcel", "Communicate expected turnaround to borrower"]
+        },
+        {
+            title: "Generate Approval Document",
+            duration: "15 min",
+            role: "Underwriter",
+            system: "Loan Origination",
+            inputs: ["All Verification Results", "Terms & Conditions"],
+            outputs: ["Approval Letter", "Loan Terms"],
+            kpis: ["Processing Time: 15 min", "Accuracy: 99.5%"],
+            guidance: ["Verify borrower details and terms", "Send for QA prior to issuance"]
+        }
+    ];
+    
+    // Add context-specific steps
+    if (location === 'new_mexico') {
+        baseSteps.splice(1, 0, {
+            title: "Check NM Mortgage Rule 12",
+            duration: "10 min",
+            role: "Compliance Officer",
+            system: "Compliance System",
+            inputs: ["Loan Application", "NM Regulations"],
+            outputs: ["Compliance Report", "Disclosure Requirements"],
+            kpis: ["Processing Time: 10 min", "Compliance Rate: 100%"],
+            guidance: ["Ensure NM disclosures are included", "Capture evidence for audit"]
+        });
+    }
+    
+    if (propertyType === 'rural') {
+        baseSteps.splice(-1, 0, {
+            title: "Rural Property Appraisal",
+            duration: "3-5 days",
+            role: "Appraiser",
+            system: "Rural Appraisal System",
+            inputs: ["Rural Property Data", "Comparable Sales"],
+            outputs: ["Rural Appraisal Report", "USDA Eligibility"],
+            kpis: ["Turnaround Time: 3-5 days", "Cost: $600-1000"],
+            guidance: ["Use rural comparables where available", "Attach special appraisal form to case file"]
+        });
+    }
+    
+    if (borrowerType === 'veteran') {
+        baseSteps.splice(0, 0, {
+            title: "Verify VA Loan Eligibility",
+            duration: "20 min",
+            role: "Loan Officer",
+            system: "VA System",
+            inputs: ["DD-214 Form", "Service Records"],
+            outputs: ["VA Certificate", "Eligibility Status"],
+            kpis: ["Processing Time: 20 min", "Accuracy: 99.9%"],
+            guidance: ["Verify service history and discharge status", "Check remaining entitlement"]
+        });
+    }
+    
+    return baseSteps;
+}
+
+function updateContextDemo() {
+    const location = document.getElementById('demo-location').value;
+    const property = document.getElementById('demo-property').value;
+    
+    const content = document.getElementById('context-output');
+    content.innerHTML = `
+        <h4>Generated Content:</h4>
+        <div class="context-specific-content">
+            <h5>${location.replace('_', ' ')} ${property} Property Procedure</h5>
+            <ul>
+                <li>Verify ${property} property appraisal requirements</li>
+                <li>Check ${location.replace('_', ' ')} state regulations</li>
+                <li>Validate loan eligibility criteria</li>
+                <li>Confirm property meets ${property} development standards</li>
+            </ul>
+        </div>
+    `;
+}
+
+function filterByRole() {
+    const role = document.getElementById('user-role').value;
+    const content = document.getElementById('filtered-content');
+    
+    const roleSteps = {
+        'underwriter': [
+            { text: 'Verify Credit Score', visible: true },
+            { text: 'Analyze Debt-to-Income Ratio', visible: true },
+            { text: 'Review Employment History', visible: true },
+            { text: 'Assess Property Value', visible: true },
+            { text: 'Request Appraisal (Appraiser)', visible: false },
+            { text: 'Compliance Check (Compliance Officer)', visible: false }
+        ],
+        'loan_officer': [
+            { text: 'Initial Application Review', visible: true },
+            { text: 'Customer Communication', visible: true },
+            { text: 'Document Collection', visible: true },
+            { text: 'Verify Credit Score', visible: true },
+            { text: 'Risk Assessment (Underwriter)', visible: false },
+            { text: 'Final Approval (Underwriter)', visible: false }
+        ],
+        'compliance_officer': [
+            { text: 'Regulatory Compliance Check', visible: true },
+            { text: 'Documentation Review', visible: true },
+            { text: 'Risk Assessment', visible: true },
+            { text: 'Audit Preparation', visible: true },
+            { text: 'Credit Verification (Underwriter)', visible: false },
+            { text: 'Customer Contact (Loan Officer)', visible: false }
+        ],
+        'appraiser': [
+            { text: 'Property Inspection', visible: true },
+            { text: 'Market Analysis', visible: true },
+            { text: 'Comparable Sales Review', visible: true },
+            { text: 'Appraisal Report Generation', visible: true },
+            { text: 'Credit Check (Underwriter)', visible: false },
+            { text: 'Customer Service (Loan Officer)', visible: false }
+        ]
+    };
+    
+    const steps = roleSteps[role] || roleSteps['underwriter'];
+    
+    content.innerHTML = `
+        <h4>${role.replace('_', ' ')} View</h4>
+        <div class="role-specific-steps">
+            ${steps.map(step => 
+                `<div class="step-item ${step.visible ? '' : 'muted'}">${step.visible ? '✓' : '○'} ${step.text}</div>`
+            ).join('')}
+        </div>
+    `;
+}
+
 function toggleAssessment() {
     docsAsCodeSystem.toggleModal('assessment-modal');
 }
