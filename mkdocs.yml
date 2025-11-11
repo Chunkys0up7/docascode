@@ -19,7 +19,11 @@ nav:
   - Home: index.md
   - Overview: overview.md
   - Getting Started: getting-started.md
-  - Implementation Plan: plan.md
+  - Implementation:
+      - Roadmap: implementation-roadmap.md
+      - Checklist: implementation-checklist.md
+      - Quick Start: quick-start-guide.md
+      - Original Plan: plan.md
   - Sources:
       - Converted: source/converted/index.md
   - Concepts:
@@ -30,6 +34,9 @@ nav:
       - Underwriting Demo: samples/underwriting-demo.md
       - IT Onboarding Demo: samples/it-onboarding-demo.md
   - Reference: reference/index.md
+  - Contributing:
+      - Overview: contributing/index.md
+      - Style Guide: contributing/style-guide.md
   - FAQ: faq.md
   - Glossary: glossary.md
   - Changelog: changelog.md
