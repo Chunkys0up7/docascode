@@ -37,6 +37,8 @@ nav:
   - Contributing:
       - Overview: contributing/index.md
       - Style Guide: contributing/style-guide.md
+      - Naming Conventions: contributing/naming-conventions.md
+      - Templates: contributing/templates/index.md
   - FAQ: faq.md
   - Glossary: glossary.md
   - Changelog: changelog.md

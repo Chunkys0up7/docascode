@@ -1,0 +1,119 @@
+name: 💡 Documentation Improvement
+description: Suggest improvements to existing documentation
+title: "[Docs Improvement]: "
+labels: ["documentation", "enhancement", "improvement"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping make our documentation better! Describe how existing documentation could be improved.
+
+  - type: input
+    id: page-url
+    attributes:
+      label: Page URL
+      description: URL of the documentation page to improve
+      placeholder: https://chunkys0up7.github.io/docascode/...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: improvement-type
+    attributes:
+      label: Type of Improvement
+      description: What kind of improvement are you suggesting?
+      options:
+        - Add more examples
+        - Improve clarity/wording
+        - Add diagrams or visuals
+        - Reorganize content
+        - Add missing details
+        - Update outdated information
+        - Improve code examples
+        - Add links to related content
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-state
+    attributes:
+      label: Current State
+      description: What's the current state of the documentation?
+      placeholder: |
+        Describe what the documentation currently says or shows...
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-improvement
+    attributes:
+      label: Proposed Improvement
+      description: How should it be improved?
+      placeholder: |
+        Describe your suggested improvement...
+        Be as specific as possible.
+    validations:
+      required: true
+
+  - type: textarea
+    id: benefits
+    attributes:
+      label: Benefits
+      description: How would this improvement help users?
+      placeholder: |
+        - Makes it easier to understand X
+        - Reduces confusion about Y
+        - Helps users avoid common mistake Z
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggested-content
+    attributes:
+      label: Suggested Content
+      description: Draft text, examples, or outline (optional but very helpful!)
+      placeholder: |
+        You can paste:
+        - Suggested rewritten text
+        - Example code
+        - Diagram ideas
+        - Content outline
+      render: markdown
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: Examples or References
+      description: Links to good examples or reference material (optional)
+      placeholder: |
+        - Similar docs that do this well
+        - External resources to reference
+        - Related documentation
+
+  - type: dropdown
+    id: effort
+    attributes:
+      label: Estimated Effort
+      description: How much work do you think this improvement would take?
+      options:
+        - Small - Quick fix (< 30 minutes)
+        - Medium - Moderate changes (1-2 hours)
+        - Large - Significant rewrite (> 2 hours)
+        - Unknown
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I have checked for similar improvement suggestions
+          required: true
+        - label: I can help implement this improvement if needed
+          required: false
+        - label: I can review the improved documentation
+          required: false
