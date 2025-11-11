@@ -1,0 +1,229 @@
+{
+  "nodes": [
+    {
+      "id": "Employee Onboarding",
+      "label": "Employee Onboarding",
+      "type": "process",
+      "properties": {
+        "description": "Start employee onboarding process"
+      }
+    },
+    {
+      "id": "Create User Account",
+      "label": "Create User Account",
+      "type": "process",
+      "properties": {
+        "description": "Create Active Directory and email accounts",
+        "duration_hours": 1
+      }
+    },
+    {
+      "id": "AD System",
+      "label": "Active Directory",
+      "type": "system",
+      "properties": {
+        "endpoint": "/api/ad/users"
+      }
+    },
+    {
+      "id": "IT Admin",
+      "label": "IT Administrator",
+      "type": "role",
+      "properties": {
+        "department": "IT"
+      }
+    },
+    {
+      "id": "Setup Workstation",
+      "label": "Setup Workstation",
+      "type": "process",
+      "properties": {
+        "description": "Configure laptop and install required software",
+        "duration_hours": 2
+      }
+    },
+    {
+      "id": "Asset Management",
+      "label": "Asset Management System",
+      "type": "system",
+      "properties": {
+        "endpoint": "/api/assets"
+      }
+    },
+    {
+      "id": "Install Developer Tools",
+      "label": "Install Developer Tools",
+      "type": "process",
+      "properties": {
+        "description": "Install IDE, Git, Docker, etc."
+      }
+    },
+    {
+      "id": "Developer",
+      "label": "Developer",
+      "type": "role",
+      "properties": {
+        "department": "Engineering"
+      }
+    },
+    {
+      "id": "Install Design Tools",
+      "label": "Install Design Tools",
+      "type": "process",
+      "properties": {
+        "description": "Install Figma, Adobe Creative Suite, etc."
+      }
+    },
+    {
+      "id": "Designer",
+      "label": "Designer",
+      "type": "role",
+      "properties": {
+        "department": "Design"
+      }
+    },
+    {
+      "id": "Security Training",
+      "label": "Security Training",
+      "type": "process",
+      "properties": {
+        "description": "Complete mandatory security awareness training"
+      }
+    },
+    {
+      "id": "LMS",
+      "label": "Learning Management System",
+      "type": "system",
+      "properties": {
+        "endpoint": "/api/lms/courses"
+      }
+    },
+    {
+      "id": "Grant Access Permissions",
+      "label": "Grant Access Permissions",
+      "type": "process",
+      "properties": {
+        "description": "Assign role-based access controls"
+      }
+    },
+    {
+      "id": "Remote Employee",
+      "label": "Remote Employee",
+      "type": "context",
+      "properties": {}
+    },
+    {
+      "id": "Ship Equipment",
+      "label": "Ship Equipment",
+      "type": "process",
+      "properties": {
+        "description": "Ship laptop and accessories to remote employee"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "Employee Onboarding",
+      "target": "Create User Account",
+      "relation": "requires",
+      "properties": {}
+    },
+    {
+      "source": "Create User Account",
+      "target": "AD System",
+      "relation": "requires",
+      "properties": {}
+    },
+    {
+      "source": "Create User Account",
+      "target": "IT Admin",
+      "relation": "performed_by",
+      "properties": {}
+    },
+    {
+      "source": "Create User Account",
+      "target": "Setup Workstation",
+      "relation": "precedes",
+      "properties": {}
+    },
+    {
+      "source": "Setup Workstation",
+      "target": "Asset Management",
+      "relation": "requires",
+      "properties": {}
+    },
+    {
+      "source": "Setup Workstation",
+      "target": "IT Admin",
+      "relation": "performed_by",
+      "properties": {}
+    },
+    {
+      "source": "Setup Workstation",
+      "target": "Install Developer Tools",
+      "relation": "conditional_on",
+      "properties": {}
+    },
+    {
+      "source": "Install Developer Tools",
+      "target": "Developer",
+      "relation": "applies_to",
+      "properties": {}
+    },
+    {
+      "source": "Setup Workstation",
+      "target": "Install Design Tools",
+      "relation": "conditional_on",
+      "properties": {}
+    },
+    {
+      "source": "Install Design Tools",
+      "target": "Designer",
+      "relation": "applies_to",
+      "properties": {}
+    },
+    {
+      "source": "Create User Account",
+      "target": "Security Training",
+      "relation": "precedes",
+      "properties": {}
+    },
+    {
+      "source": "Security Training",
+      "target": "LMS",
+      "relation": "requires",
+      "properties": {}
+    },
+    {
+      "source": "Security Training",
+      "target": "Grant Access Permissions",
+      "relation": "precedes",
+      "properties": {}
+    },
+    {
+      "source": "Grant Access Permissions",
+      "target": "IT Admin",
+      "relation": "performed_by",
+      "properties": {}
+    },
+    {
+      "source": "Employee Onboarding",
+      "target": "Ship Equipment",
+      "relation": "requires",
+      "properties": {}
+    },
+    {
+      "source": "Ship Equipment",
+      "target": "Remote Employee",
+      "relation": "applies_to",
+      "properties": {}
+    }
+  ],
+  "metadata": {
+    "name": "IT Employee Onboarding",
+    "description": "Knowledge graph for IT employee onboarding procedures",
+    "version": "1.0",
+    "created_at": "2025-01-15",
+    "departments": ["IT", "Engineering", "Design"]
+  }
+}

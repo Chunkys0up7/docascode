@@ -1,0 +1,174 @@
+# Release Notes - {{ version }}
+
+**Release Date:** {{ release_date }}
+{% if release_type %}**Release Type:** {{ release_type }}{% endif %}
+{% if codename %}**Codename:** {{ codename }}{% endif %}
+
+---
+
+{% if highlights %}
+## Highlights
+
+{{ highlights|bullet_list }}
+{% endif %}
+
+{% if breaking_changes %}
+## ⚠️ Breaking Changes
+
+{% for change in breaking_changes %}
+### {{ change.title }}
+
+{{ change.description }}
+
+{% if change.migration %}
+**Migration Guide:**
+{{ change.migration|bullet_list }}
+{% endif %}
+
+{% if change.affected_apis %}
+**Affected APIs:**
+{{ change.affected_apis|bullet_list }}
+{% endif %}
+
+{% endfor %}
+{% endif %}
+
+{% if new_features %}
+## ✨ New Features
+
+{% for feature in new_features %}
+### {{ feature.title }}
+
+{{ feature.description }}
+
+{% if feature.example %}
+**Example:**
+```{{ feature.example_language or 'javascript' }}
+{{ feature.example }}
+```
+{% endif %}
+
+{% if feature.docs %}
+[View Documentation]({{ feature.docs }})
+{% endif %}
+
+{% endfor %}
+{% endif %}
+
+{% if improvements %}
+## 🚀 Improvements
+
+{% for improvement in improvements %}
+- **{{ improvement.title }}**: {{ improvement.description }}
+{% endfor %}
+{% endif %}
+
+{% if bug_fixes %}
+## 🐛 Bug Fixes
+
+{% for fix in bug_fixes %}
+- {{ fix.description }}{% if fix.issue_id %} ([#{{ fix.issue_id }}]({{ fix.issue_url }})){% endif %}
+{% endfor %}
+{% endif %}
+
+{% if security %}
+## 🔒 Security Updates
+
+{% for update in security %}
+- {{ update.description }}{% if update.cve %} ({{ update.cve }}){% endif %}
+{% endfor %}
+{% endif %}
+
+{% if deprecations %}
+## ⚠️ Deprecations
+
+{% for deprecation in deprecations %}
+### {{ deprecation.feature }}
+
+{{ deprecation.description }}
+
+{% if deprecation.alternative %}
+**Alternative:** {{ deprecation.alternative }}
+{% endif %}
+
+{% if deprecation.removal_date %}
+**Removal Date:** {{ deprecation.removal_date }}
+{% endif %}
+
+{% endfor %}
+{% endif %}
+
+{% if dependencies %}
+## 📦 Dependency Updates
+
+{% for dep in dependencies %}
+- {{ dep.name }}: {{ dep.old_version }} → {{ dep.new_version }}
+{% endfor %}
+{% endif %}
+
+{% if known_issues %}
+## ⚠️ Known Issues
+
+{% for issue in known_issues %}
+- {{ issue.description }}{% if issue.workaround %} **Workaround:** {{ issue.workaround }}{% endif %}
+{% endfor %}
+{% endif %}
+
+{% if upgrade_instructions %}
+## 🔄 Upgrade Instructions
+
+{{ upgrade_instructions }}
+
+{% if upgrade_steps %}
+### Steps
+
+{% for step in upgrade_steps %}
+{{ loop.index }}. {{ step }}
+{% endfor %}
+{% endif %}
+{% endif %}
+
+{% if compatibility %}
+## 📋 Compatibility
+
+{% for platform, versions in compatibility.items() %}
+- **{{ platform }}**: {{ versions }}
+{% endfor %}
+{% endif %}
+
+{% if contributors %}
+## 👏 Contributors
+
+Thank you to all contributors who made this release possible!
+
+{% for contributor in contributors %}
+- [@{{ contributor.username }}]({{ contributor.profile_url }}){% if contributor.contributions %} ({{ contributor.contributions|join(', ') }}){% endif %}
+{% endfor %}
+{% endif %}
+
+---
+
+{% if download_url %}
+## 📥 Download
+
+[Download {{ version }}]({{ download_url }})
+{% endif %}
+
+{% if documentation_url %}
+## 📚 Documentation
+
+[View Full Documentation]({{ documentation_url }})
+{% endif %}
+
+{% if feedback_url %}
+## 💬 Feedback
+
+Have feedback or questions? [Let us know]({{ feedback_url }})
+{% endif %}
+
+{% if next_release %}
+
+---
+
+**Next Release:** {{ next_release.version }} ({{ next_release.date }})
+{% endif %}

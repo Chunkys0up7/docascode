@@ -1,0 +1,273 @@
+{
+  "nodes": [
+    {
+      "id": "Sprint Planning",
+      "label": "Sprint Planning",
+      "type": "process",
+      "properties": {
+        "description": "Plan sprint backlog and estimate stories"
+      }
+    },
+    {
+      "id": "Design Review",
+      "label": "Design Review",
+      "type": "process",
+      "properties": {
+        "description": "Review technical design with team"
+      }
+    },
+    {
+      "id": "Product Manager",
+      "label": "Product Manager",
+      "type": "role",
+      "properties": {}
+    },
+    {
+      "id": "Implement Feature",
+      "label": "Implement Feature",
+      "type": "process",
+      "properties": {
+        "description": "Write code for feature"
+      }
+    },
+    {
+      "id": "Software Engineer",
+      "label": "Software Engineer",
+      "type": "role",
+      "properties": {}
+    },
+    {
+      "id": "GitHub",
+      "label": "GitHub",
+      "type": "system",
+      "properties": {
+        "endpoint": "https://api.github.com"
+      }
+    },
+    {
+      "id": "Write Unit Tests",
+      "label": "Write Unit Tests",
+      "type": "process",
+      "properties": {
+        "description": "Create automated unit tests"
+      }
+    },
+    {
+      "id": "Write Integration Tests",
+      "label": "Write Integration Tests",
+      "type": "process",
+      "properties": {
+        "description": "Create integration tests"
+      }
+    },
+    {
+      "id": "Backend Feature",
+      "label": "Backend Feature",
+      "type": "context",
+      "properties": {}
+    },
+    {
+      "id": "Code Review",
+      "label": "Code Review",
+      "type": "process",
+      "properties": {
+        "description": "Peer review pull request"
+      }
+    },
+    {
+      "id": "Senior Engineer",
+      "label": "Senior Engineer",
+      "type": "role",
+      "properties": {}
+    },
+    {
+      "id": "Run CI Pipeline",
+      "label": "Run CI Pipeline",
+      "type": "process",
+      "properties": {
+        "description": "Execute continuous integration checks"
+      }
+    },
+    {
+      "id": "CI System",
+      "label": "CI/CD System",
+      "type": "system",
+      "properties": {
+        "endpoint": "/api/ci"
+      }
+    },
+    {
+      "id": "Security Scan",
+      "label": "Security Scan",
+      "type": "process",
+      "properties": {
+        "description": "Run security vulnerability scan"
+      }
+    },
+    {
+      "id": "Production Feature",
+      "label": "Production Feature",
+      "type": "context",
+      "properties": {}
+    },
+    {
+      "id": "Deploy to Staging",
+      "label": "Deploy to Staging",
+      "type": "process",
+      "properties": {
+        "description": "Deploy to staging environment"
+      }
+    },
+    {
+      "id": "QA Testing",
+      "label": "QA Testing",
+      "type": "process",
+      "properties": {
+        "description": "Manual QA testing"
+      }
+    },
+    {
+      "id": "QA Engineer",
+      "label": "QA Engineer",
+      "type": "role",
+      "properties": {}
+    },
+    {
+      "id": "Deploy to Production",
+      "label": "Deploy to Production",
+      "type": "process",
+      "properties": {
+        "description": "Deploy to production environment"
+      }
+    },
+    {
+      "id": "DevOps Engineer",
+      "label": "DevOps Engineer",
+      "type": "role",
+      "properties": {}
+    }
+  ],
+  "edges": [
+    {
+      "source": "Sprint Planning",
+      "target": "Design Review",
+      "relation": "requires",
+      "properties": {}
+    },
+    {
+      "source": "Sprint Planning",
+      "target": "Product Manager",
+      "relation": "performed_by",
+      "properties": {}
+    },
+    {
+      "source": "Design Review",
+      "target": "Implement Feature",
+      "relation": "precedes",
+      "properties": {}
+    },
+    {
+      "source": "Implement Feature",
+      "target": "Software Engineer",
+      "relation": "performed_by",
+      "properties": {}
+    },
+    {
+      "source": "Implement Feature",
+      "target": "GitHub",
+      "relation": "requires",
+      "properties": {}
+    },
+    {
+      "source": "Implement Feature",
+      "target": "Write Unit Tests",
+      "relation": "requires",
+      "properties": {}
+    },
+    {
+      "source": "Implement Feature",
+      "target": "Write Integration Tests",
+      "relation": "conditional_on",
+      "properties": {}
+    },
+    {
+      "source": "Write Integration Tests",
+      "target": "Backend Feature",
+      "relation": "applies_to",
+      "properties": {}
+    },
+    {
+      "source": "Write Unit Tests",
+      "target": "Code Review",
+      "relation": "precedes",
+      "properties": {}
+    },
+    {
+      "source": "Code Review",
+      "target": "Senior Engineer",
+      "relation": "performed_by",
+      "properties": {}
+    },
+    {
+      "source": "Code Review",
+      "target": "Run CI Pipeline",
+      "relation": "precedes",
+      "properties": {}
+    },
+    {
+      "source": "Run CI Pipeline",
+      "target": "CI System",
+      "relation": "requires",
+      "properties": {}
+    },
+    {
+      "source": "Run CI Pipeline",
+      "target": "Security Scan",
+      "relation": "requires",
+      "properties": {}
+    },
+    {
+      "source": "Security Scan",
+      "target": "Production Feature",
+      "relation": "applies_to",
+      "properties": {}
+    },
+    {
+      "source": "Run CI Pipeline",
+      "target": "Deploy to Staging",
+      "relation": "precedes",
+      "properties": {}
+    },
+    {
+      "source": "Deploy to Staging",
+      "target": "QA Testing",
+      "relation": "requires",
+      "properties": {}
+    },
+    {
+      "source": "QA Testing",
+      "target": "QA Engineer",
+      "relation": "performed_by",
+      "properties": {}
+    },
+    {
+      "source": "QA Testing",
+      "target": "Deploy to Production",
+      "relation": "precedes",
+      "properties": {}
+    },
+    {
+      "source": "Deploy to Production",
+      "target": "DevOps Engineer",
+      "relation": "performed_by",
+      "properties": {}
+    }
+  ],
+  "metadata": {
+    "name": "Software Development Lifecycle",
+    "description": "Knowledge graph for software development and deployment process",
+    "version": "1.0",
+    "created_at": "2025-01-15",
+    "methodology": "Agile/Scrum"
+  }
+}

@@ -1,0 +1,129 @@
+# {{ title }}
+
+**Document Type:** Policy
+{% if policy_number %}**Policy Number:** {{ policy_number }}{% endif %}
+{% if version %}**Version:** {{ version }}{% endif %}
+**Effective Date:** {{ effective_date }}
+{% if owner %}**Policy Owner:** {{ owner }}{% endif %}
+{% if classification %}**Classification:** {{ classification }}{% endif %}
+
+---
+
+{% if revision_history %}
+## Revision History
+
+| Version | Date | Author | Changes |
+|---------|------|--------|---------|
+{% for revision in revision_history %}
+| {{ revision.version }} | {{ revision.date }} | {{ revision.author }} | {{ revision.changes }} |
+{% endfor %}
+{% endif %}
+
+## 1. Purpose
+
+{{ purpose }}
+
+## 2. Scope
+
+{{ scope }}
+
+{% if definitions %}
+## 3. Definitions
+
+{% for term, definition in definitions.items() %}
+**{{ term }}**: {{ definition }}
+
+{% endfor %}
+{% endif %}
+
+## {% if definitions %}4{% else %}3{% endif %}. Policy Statement
+
+{{ policy_statement }}
+
+{% if requirements %}
+## {% if definitions %}5{% else %}4{% endif %}. Requirements
+
+{% for req in requirements %}
+### {% if definitions %}5{% else %}4{% endif %}.{{ loop.index }} {{ req.title }}
+
+{{ req.description }}
+
+{% if req.controls %}
+**Controls:**
+{{ req.controls|bullet_list }}
+{% endif %}
+
+{% if req.responsibilities %}
+**Responsibilities:**
+{% for role, responsibility in req.responsibilities.items() %}
+- **{{ role }}**: {{ responsibility }}
+{% endfor %}
+{% endif %}
+
+{% endfor %}
+{% endif %}
+
+{% if compliance %}
+## {% if definitions %}6{% else %}5{% endif %}. Compliance
+
+This policy supports compliance with:
+
+{% for standard in compliance %}
+- **{{ standard.name }}**{% if standard.references %} ({{ standard.references|join(', ') }}){% endif %}
+{% endfor %}
+{% endif %}
+
+{% if violations %}
+## {% if definitions %}7{% else %}6{% endif %}. Policy Violations
+
+{{ violations }}
+{% endif %}
+
+{% if exceptions %}
+## {% if definitions %}8{% else %}7{% endif %}. Exceptions
+
+{{ exceptions }}
+{% endif %}
+
+{% if review_process %}
+## {% if definitions %}9{% else %}8{% endif %}. Review and Update
+
+{{ review_process }}
+
+{% if review_schedule %}
+**Review Schedule:** {{ review_schedule }}
+{% endif %}
+{% if next_review_date %}
+**Next Review Date:** {{ next_review_date }}
+{% endif %}
+{% endif %}
+
+{% if related_documents %}
+## Related Documents
+
+{% for doc in related_documents %}
+- [{{ doc.title }}]({{ doc.url }})
+{% endfor %}
+{% endif %}
+
+{% if approvals %}
+---
+
+## Approvals
+
+{% for approval in approvals %}
+**{{ approval.role }}:** {{ approval.name }}
+{% if approval.date %}
+**Date:** {{ approval.date }}
+{% endif %}
+
+{% endfor %}
+{% endif %}
+
+---
+
+*This document is controlled and maintained by {{ owner or 'Policy Management Team' }}.*
+{% if footer %}
+
+{{ footer }}
+{% endif %}

@@ -1,0 +1,180 @@
+# {{ title }}
+
+{% if service %}**Service:** {{ service }}{% endif %}
+{% if system %}**System:** {{ system }}{% endif %}
+{% if version %}**Version:** {{ version }}{% endif %}
+**Last Updated:** {{ last_updated }}
+{% if maintainer %}**Maintainer:** {{ maintainer }}{% endif %}
+
+---
+
+## Overview
+
+{{ overview }}
+
+{% if prerequisites %}
+## Prerequisites
+
+{% for prereq in prerequisites %}
+- {{ prereq }}
+{% endfor %}
+{% endif %}
+
+{% if access_requirements %}
+## Access Requirements
+
+{% for access in access_requirements %}
+- **{{ access.system }}**: {{ access.permission }}{% if access.how_to_request %} (Request via {{ access.how_to_request }}){% endif %}
+{% endfor %}
+{% endif %}
+
+{% if procedures %}
+## Procedures
+
+{% for procedure in procedures %}
+### {{ procedure.title }}
+
+{% if procedure.description %}
+{{ procedure.description }}
+{% endif %}
+
+{% if procedure.when_to_use %}
+**When to use:** {{ procedure.when_to_use }}
+{% endif %}
+
+{% if procedure.steps %}
+**Steps:**
+
+{% for step in procedure.steps %}
+{{ loop.index }}. **{{ step.action }}**
+{% if step.command %}
+   ```bash
+   {{ step.command }}
+   ```
+{% endif %}
+{% if step.expected_output %}
+   Expected output:
+   ```
+   {{ step.expected_output }}
+   ```
+{% endif %}
+{% if step.notes %}
+   *Note: {{ step.notes }}*
+{% endif %}
+
+{% endfor %}
+{% endif %}
+
+{% if procedure.validation %}
+**Validation:**
+{{ procedure.validation|bullet_list }}
+{% endif %}
+
+{% if procedure.rollback %}
+**Rollback:**
+{{ procedure.rollback|bullet_list }}
+{% endif %}
+
+---
+
+{% endfor %}
+{% endif %}
+
+{% if troubleshooting %}
+## Troubleshooting
+
+{% for issue in troubleshooting %}
+### {{ issue.symptom }}
+
+{% if issue.description %}
+{{ issue.description }}
+{% endif %}
+
+**Possible Causes:**
+{{ issue.causes|bullet_list }}
+
+**Resolution Steps:**
+
+{% for step in issue.resolution %}
+{{ loop.index }}. {{ step }}
+{% endfor %}
+
+{% if issue.escalation %}
+**Escalation:** {{ issue.escalation }}
+{% endif %}
+
+---
+
+{% endfor %}
+{% endif %}
+
+{% if monitoring %}
+## Monitoring and Alerts
+
+{% for monitor in monitoring %}
+### {{ monitor.name }}
+
+{% if monitor.description %}{{ monitor.description }}{% endif %}
+
+- **Metric:** `{{ monitor.metric }}`
+- **Threshold:** {{ monitor.threshold }}
+- **Alert Level:** {{ monitor.alert_level }}
+{% if monitor.dashboard %}
+- **Dashboard:** [View Dashboard]({{ monitor.dashboard }})
+{% endif %}
+
+{% endfor %}
+{% endif %}
+
+{% if dependencies %}
+## Dependencies
+
+{% for dep in dependencies %}
+- **{{ dep.name }}**{% if dep.type %} ({{ dep.type }}){% endif %}
+  {% if dep.health_check %}
+  - Health check: `{{ dep.health_check }}`
+  {% endif %}
+  {% if dep.contact %}
+  - Contact: {{ dep.contact }}
+  {% endif %}
+{% endfor %}
+{% endif %}
+
+{% if contacts %}
+## Contacts and Escalation
+
+{% for contact in contacts %}
+### {{ contact.role }}
+
+{% if contact.primary %}
+**Primary:** {{ contact.primary }}
+{% if contact.primary_phone %} ({{ contact.primary_phone }}){% endif %}
+{% endif %}
+
+{% if contact.secondary %}
+**Secondary:** {{ contact.secondary }}
+{% if contact.secondary_phone %} ({{ contact.secondary_phone }}){% endif %}
+{% endif %}
+
+{% if contact.escalation %}
+**Escalation:** {{ contact.escalation }}
+{% endif %}
+
+{% endfor %}
+{% endif %}
+
+{% if resources %}
+## Additional Resources
+
+{% for resource in resources %}
+- [{{ resource.name }}]({{ resource.url }}){% if resource.description %} - {{ resource.description }}{% endif %}
+{% endfor %}
+{% endif %}
+
+---
+
+{% if last_tested %}
+*Last tested: {{ last_tested }}*
+{% endif %}
+
+*For questions or updates to this runbook, contact {{ maintainer or 'the oncall team' }}.*

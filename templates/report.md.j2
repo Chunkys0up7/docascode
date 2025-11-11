@@ -1,0 +1,105 @@
+# {{ title }}
+
+{% if subtitle %}
+**{{ subtitle }}**
+{% endif %}
+
+**Report Date:** {{ date }}
+{% if author %}**Author:** {{ author }}{% endif %}
+{% if version %}**Version:** {{ version }}{% endif %}
+
+---
+
+{% if executive_summary %}
+## Executive Summary
+
+{{ executive_summary }}
+{% endif %}
+
+{% if sections %}
+{% for section in sections %}
+## {{ section.title }}
+
+{% if section.summary %}
+{{ section.summary }}
+{% endif %}
+
+{% if section.metrics %}
+### Key Metrics
+
+| Metric | Value | Target | Status |
+|--------|-------|--------|--------|
+{% for metric in section.metrics %}
+| {{ metric.name }} | {{ metric.value }} | {{ metric.target }} | {{ metric.status }} |
+{% endfor %}
+{% endif %}
+
+{% if section.findings %}
+### Findings
+
+{% for finding in section.findings %}
+#### {{ loop.index }}. {{ finding.title }}
+
+{{ finding.description }}
+
+{% if finding.severity %}
+**Severity:** {{ finding.severity }}
+{% endif %}
+
+{% if finding.recommendations %}
+**Recommendations:**
+{{ finding.recommendations|bullet_list }}
+{% endif %}
+{% endfor %}
+{% endif %}
+
+{% if section.content %}
+{{ section.content }}
+{% endif %}
+
+{% endfor %}
+{% endif %}
+
+{% if recommendations %}
+## Recommendations
+
+{% for rec in recommendations %}
+### {{ loop.index }}. {{ rec.title }}
+
+{{ rec.description }}
+
+{% if rec.priority %}
+**Priority:** {{ rec.priority }}
+{% endif %}
+{% if rec.effort %}
+**Effort:** {{ rec.effort }}
+{% endif %}
+{% if rec.timeline %}
+**Timeline:** {{ rec.timeline }}
+{% endif %}
+{% endfor %}
+{% endif %}
+
+{% if next_steps %}
+## Next Steps
+
+{{ next_steps|numbered_list }}
+{% endif %}
+
+{% if appendices %}
+## Appendices
+
+{% for appendix in appendices %}
+### Appendix {{ loop.index }}: {{ appendix.title }}
+
+{{ appendix.content }}
+{% endfor %}
+{% endif %}
+
+---
+
+{% if footer %}
+{{ footer }}
+{% else %}
+*This report was generated on {{ date }}*
+{% endif %}

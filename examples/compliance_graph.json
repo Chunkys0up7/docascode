@@ -1,0 +1,253 @@
+{
+  "nodes": [
+    {
+      "id": "Risk Assessment",
+      "label": "Risk Assessment",
+      "type": "process",
+      "properties": {
+        "description": "Conduct comprehensive risk assessment"
+      }
+    },
+    {
+      "id": "Compliance Officer",
+      "label": "Compliance Officer",
+      "type": "role",
+      "properties": {}
+    },
+    {
+      "id": "Document Controls",
+      "label": "Document Controls",
+      "type": "process",
+      "properties": {
+        "description": "Document existing security controls"
+      }
+    },
+    {
+      "id": "GRC System",
+      "label": "GRC System",
+      "type": "system",
+      "properties": {
+        "endpoint": "/api/grc"
+      }
+    },
+    {
+      "id": "SOC 2 Audit",
+      "label": "SOC 2 Audit",
+      "type": "process",
+      "properties": {
+        "description": "Prepare for SOC 2 Type II audit"
+      }
+    },
+    {
+      "id": "SOC 2",
+      "label": "SOC 2 Compliance",
+      "type": "context",
+      "properties": {}
+    },
+    {
+      "id": "GDPR Assessment",
+      "label": "GDPR Assessment",
+      "type": "process",
+      "properties": {
+        "description": "Assess GDPR compliance requirements"
+      }
+    },
+    {
+      "id": "GDPR",
+      "label": "GDPR Regulation",
+      "type": "regulation",
+      "properties": {
+        "jurisdiction": "EU"
+      }
+    },
+    {
+      "id": "Data Privacy Officer",
+      "label": "Data Privacy Officer",
+      "type": "role",
+      "properties": {}
+    },
+    {
+      "id": "HIPAA Assessment",
+      "label": "HIPAA Assessment",
+      "type": "process",
+      "properties": {
+        "description": "Assess HIPAA compliance for healthcare data"
+      }
+    },
+    {
+      "id": "HIPAA",
+      "label": "HIPAA Regulation",
+      "type": "regulation",
+      "properties": {
+        "jurisdiction": "US"
+      }
+    },
+    {
+      "id": "Healthcare Industry",
+      "label": "Healthcare Industry",
+      "type": "context",
+      "properties": {}
+    },
+    {
+      "id": "Implement Controls",
+      "label": "Implement Controls",
+      "type": "process",
+      "properties": {
+        "description": "Implement required security controls"
+      }
+    },
+    {
+      "id": "Security Engineer",
+      "label": "Security Engineer",
+      "type": "role",
+      "properties": {}
+    },
+    {
+      "id": "Training Program",
+      "label": "Training Program",
+      "type": "process",
+      "properties": {
+        "description": "Conduct compliance training for employees"
+      }
+    },
+    {
+      "id": "Internal Audit",
+      "label": "Internal Audit",
+      "type": "process",
+      "properties": {
+        "description": "Perform internal compliance audit"
+      }
+    },
+    {
+      "id": "Auditor",
+      "label": "Internal Auditor",
+      "type": "role",
+      "properties": {}
+    },
+    {
+      "id": "Generate Report",
+      "label": "Generate Compliance Report",
+      "type": "process",
+      "properties": {
+        "description": "Generate compliance status report"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "Risk Assessment",
+      "target": "Compliance Officer",
+      "relation": "performed_by",
+      "properties": {}
+    },
+    {
+      "source": "Risk Assessment",
+      "target": "Document Controls",
+      "relation": "precedes",
+      "properties": {}
+    },
+    {
+      "source": "Document Controls",
+      "target": "GRC System",
+      "relation": "requires",
+      "properties": {}
+    },
+    {
+      "source": "Document Controls",
+      "target": "SOC 2 Audit",
+      "relation": "conditional_on",
+      "properties": {}
+    },
+    {
+      "source": "SOC 2 Audit",
+      "target": "SOC 2",
+      "relation": "applies_to",
+      "properties": {}
+    },
+    {
+      "source": "Document Controls",
+      "target": "GDPR Assessment",
+      "relation": "conditional_on",
+      "properties": {}
+    },
+    {
+      "source": "GDPR Assessment",
+      "target": "GDPR",
+      "relation": "applies_to",
+      "properties": {}
+    },
+    {
+      "source": "GDPR Assessment",
+      "target": "Data Privacy Officer",
+      "relation": "performed_by",
+      "properties": {}
+    },
+    {
+      "source": "Document Controls",
+      "target": "HIPAA Assessment",
+      "relation": "conditional_on",
+      "properties": {}
+    },
+    {
+      "source": "HIPAA Assessment",
+      "target": "HIPAA",
+      "relation": "applies_to",
+      "properties": {}
+    },
+    {
+      "source": "HIPAA Assessment",
+      "target": "Healthcare Industry",
+      "relation": "applies_to",
+      "properties": {}
+    },
+    {
+      "source": "Risk Assessment",
+      "target": "Implement Controls",
+      "relation": "requires",
+      "properties": {}
+    },
+    {
+      "source": "Implement Controls",
+      "target": "Security Engineer",
+      "relation": "performed_by",
+      "properties": {}
+    },
+    {
+      "source": "Implement Controls",
+      "target": "Training Program",
+      "relation": "precedes",
+      "properties": {}
+    },
+    {
+      "source": "Training Program",
+      "target": "Internal Audit",
+      "relation": "precedes",
+      "properties": {}
+    },
+    {
+      "source": "Internal Audit",
+      "target": "Auditor",
+      "relation": "performed_by",
+      "properties": {}
+    },
+    {
+      "source": "Internal Audit",
+      "target": "Generate Report",
+      "relation": "precedes",
+      "properties": {}
+    },
+    {
+      "source": "Generate Report",
+      "target": "GRC System",
+      "relation": "requires",
+      "properties": {}
+    }
+  ],
+  "metadata": {
+    "name": "Compliance Management",
+    "description": "Knowledge graph for regulatory compliance processes",
+    "version": "1.0",
+    "created_at": "2025-01-15",
+    "regulations": ["SOC 2", "GDPR", "HIPAA"]
+  }
+}
