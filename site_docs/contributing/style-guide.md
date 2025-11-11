@@ -155,8 +155,8 @@ Include descriptive text, not URLs:
 #### Link Text
 Make link text descriptive:
 
-**Good:** "See the [installation guide](install.md) for details."
-**Bad:** "Click [here](install.md) for installation."
+**Good:** "See the [installation guide](../getting-started.md) for details."
+**Bad:** "Click [here](../getting-started.md) for installation."
 
 ### Images
 
@@ -374,8 +374,8 @@ How to test that it worked...
 
 ## Next Steps
 
-- [Next tutorial](link.md)
-- [Related concepts](link.md)
+- [Next tutorial](#)
+- [Related concepts](#)
 ```
 
 ### How-To Guides
@@ -443,7 +443,7 @@ Description of return value
 
 ## See Also
 
-- [Related API](link.md)
+- [Related API](#)
 ```
 
 ---
@@ -564,8 +564,8 @@ You should see the OAuth login page.
 
 ## Next Steps
 
-- [Manage user roles](user-roles.md)
-- [Configure authorization](authorization.md)
+- [Manage user roles](#)
+- [Configure authorization](#)
 ```
 
 ### Bad Example
@@ -604,7 +604,7 @@ When documenting deprecated features:
 ```markdown
 !!! warning "Deprecated"
     This feature is deprecated as of version 2.0.
-    Use [new feature](link.md) instead.
+    Use [new feature](#) instead.
 ```
 
 ---
