@@ -1,0 +1,121 @@
+Metadata-Version: 2.4
+Name: docascode-mcp
+Version: 0.1.0
+Summary: MCP service for document creation, transformation, and cataloguing with knowledge graph integration
+Author: DocAsCode Team
+License: MIT
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: mcp>=0.9.0
+Requires-Dist: networkx<4,>=3.2
+Requires-Dist: pandas<3,>=2.2
+Requires-Dist: sentence-transformers<3,>=2.2
+Requires-Dist: chromadb<1,>=0.4
+Requires-Dist: markdown<4,>=3.5
+Requires-Dist: beautifulsoup4<5,>=4.12
+Requires-Dist: jinja2<4,>=3.1
+Requires-Dist: pydantic<3,>=2.5
+Requires-Dist: pydantic-settings<3,>=2.0
+Requires-Dist: typer<1,>=0.9
+Requires-Dist: loguru<1,>=0.7
+Requires-Dist: python-dotenv<2,>=1.0
+Requires-Dist: aiofiles<24,>=23.0
+Requires-Dist: sqlalchemy<3,>=2.0
+Provides-Extra: dev
+Requires-Dist: pytest<8,>=7.4; extra == "dev"
+Requires-Dist: pytest-asyncio<1,>=0.21; extra == "dev"
+Requires-Dist: pytest-cov<5,>=4.1; extra == "dev"
+Requires-Dist: black<24,>=23.0; extra == "dev"
+Requires-Dist: ruff<1,>=0.1; extra == "dev"
+Requires-Dist: mypy<2,>=1.7; extra == "dev"
+Provides-Extra: nlp
+Requires-Dist: spacy<4,>=3.7; extra == "nlp"
+Provides-Extra: pdf
+Requires-Dist: pypdf<4,>=3.17; extra == "pdf"
+Requires-Dist: reportlab<5,>=4.0; extra == "pdf"
+Provides-Extra: docx
+Requires-Dist: python-docx<2,>=1.1; extra == "docx"
+Provides-Extra: advanced
+Requires-Dist: neo4j<6,>=5.14; extra == "advanced"
+Requires-Dist: pypandoc<2,>=1.12; extra == "advanced"
+Provides-Extra: all
+Requires-Dist: docascode-mcp[advanced,docx,nlp,pdf]; extra == "all"
+
+## Dynamic Docs POC (Graph-Based Dynamic Procedures)
+
+This proof-of-concept demonstrates a lightweight, end-to-end flow for graph-based, dynamic procedure generation using a simple stack:
+
+- Python for core logic and sample data
+- Streamlit for an interactive UI
+- NetworkX for an in-memory knowledge graph
+- PyVis for graph visualization
+- MkDocs for static documentation export of generated procedures
+
+### What it does
+
+- Builds a small underwriting knowledge graph (processes, roles, systems, regulations, contexts)
+- Parses a natural-language query or loads a sample borrower profile
+- Traverses the graph to generate a context-aware procedure
+- Visualizes the traversal
+- Exports the generated steps to Markdown so it can appear in a MkDocs site
+
+### Project structure
+
+```
+app/
+  streamlit_app.py
+core/
+  __init__.py
+  export_md.py
+  graph_seed.py
+  nlp.py
+  procedure.py
+  visualize.py
+data/
+  borrowers.csv
+  regulations.csv
+  systems.csv
+site_docs/
+  index.md
+  generated/.gitkeep
+mkdocs.yml
+requirements.txt
+```
+
+### Quickstart
+
+1) Create a virtual environment and install deps
+
+```
+python -m venv .venv
+.venv/Scripts/activate  # Windows PowerShell: .venv\\Scripts\\Activate.ps1
+pip install -r requirements.txt
+```
+
+2) Run the Streamlit app
+
+```
+streamlit run app/streamlit_app.py
+```
+
+3) Generate a procedure
+
+- Enter a query like: "Underwrite home loan for a first-time buyer in New Mexico with rural property"; or select a borrower from the sample data.
+
+4) Export to docs
+
+- Click "Export to MkDocs" to write a Markdown file under `site_docs/generated/`.
+- In another terminal, serve the docs:
+
+```
+mkdocs serve
+```
+
+Open the local server URL shown by MkDocs and navigate to Generated.
+
+### Notes
+
+- The PoC uses simple heuristics for parsing and traversal to stay lightweight. It is intentionally minimal but structured for extension (e.g., swap in spaCy/LLM parsing, or Neo4j in place of NetworkX).
+- The repository already contains a `Docs/` folder with prior notes. MkDocs is configured to use `site_docs/` to avoid conflicts on Windows.
+
+

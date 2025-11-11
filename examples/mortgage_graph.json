@@ -1,0 +1,252 @@
+{
+  "nodes": [
+    {
+      "id": "Loan Application",
+      "label": "Loan Application",
+      "type": "process",
+      "properties": {
+        "description": "Initial loan application submission"
+      }
+    },
+    {
+      "id": "Verify Credit Score",
+      "label": "Verify Credit Score",
+      "type": "process",
+      "properties": {
+        "description": "Retrieve and validate applicant credit report"
+      }
+    },
+    {
+      "id": "Credit Bureau API",
+      "label": "Credit Bureau API",
+      "type": "system",
+      "properties": {
+        "endpoint": "/api/credit/report"
+      }
+    },
+    {
+      "id": "Underwriter",
+      "label": "Underwriter",
+      "type": "role",
+      "properties": {}
+    },
+    {
+      "id": "Request Appraisal",
+      "label": "Request Appraisal",
+      "type": "process",
+      "properties": {
+        "description": "Initiate property appraisal request"
+      }
+    },
+    {
+      "id": "Property Database API",
+      "label": "Property Database API",
+      "type": "system",
+      "properties": {
+        "endpoint": "/api/property/appraisal"
+      }
+    },
+    {
+      "id": "Appraiser",
+      "label": "Appraiser",
+      "type": "role",
+      "properties": {}
+    },
+    {
+      "id": "Rural Property Appraisal",
+      "label": "Rural Property Appraisal",
+      "type": "process",
+      "properties": {
+        "description": "Additional appraisal checks for rural properties"
+      }
+    },
+    {
+      "id": "Rural Property",
+      "label": "Rural Property",
+      "type": "context",
+      "properties": {}
+    },
+    {
+      "id": "Special Appraisal Form",
+      "label": "Special Appraisal Form",
+      "type": "system",
+      "properties": {
+        "form_id": "RURAL-001"
+      }
+    },
+    {
+      "id": "Check NM Mortgage Rule 12",
+      "label": "Check NM Mortgage Rule 12",
+      "type": "process",
+      "properties": {
+        "description": "Ensure NM-specific disclosure compliance"
+      }
+    },
+    {
+      "id": "New Mexico",
+      "label": "New Mexico",
+      "type": "context",
+      "properties": {}
+    },
+    {
+      "id": "Regulatory DB",
+      "label": "Regulatory DB",
+      "type": "system",
+      "properties": {
+        "endpoint": "/api/regulations"
+      }
+    },
+    {
+      "id": "Check TX Mortgage Rule 7",
+      "label": "Check TX Mortgage Rule 7",
+      "type": "process",
+      "properties": {
+        "description": "Ensure TX-specific mortgage rule compliance"
+      }
+    },
+    {
+      "id": "Texas",
+      "label": "Texas",
+      "type": "context",
+      "properties": {}
+    },
+    {
+      "id": "Generate Approval Document",
+      "label": "Generate Approval Document",
+      "type": "process",
+      "properties": {
+        "description": "Produce final approval document for borrower"
+      }
+    },
+    {
+      "id": "Document Gen API",
+      "label": "Document Gen API",
+      "type": "system",
+      "properties": {
+        "endpoint": "/api/documents/generate"
+      }
+    },
+    {
+      "id": "Loan Officer",
+      "label": "Loan Officer",
+      "type": "role",
+      "properties": {}
+    }
+  ],
+  "edges": [
+    {
+      "source": "Loan Application",
+      "target": "Verify Credit Score",
+      "relation": "requires",
+      "properties": {}
+    },
+    {
+      "source": "Verify Credit Score",
+      "target": "Credit Bureau API",
+      "relation": "requires",
+      "properties": {}
+    },
+    {
+      "source": "Verify Credit Score",
+      "target": "Underwriter",
+      "relation": "performed_by",
+      "properties": {}
+    },
+    {
+      "source": "Verify Credit Score",
+      "target": "Request Appraisal",
+      "relation": "precedes",
+      "properties": {}
+    },
+    {
+      "source": "Request Appraisal",
+      "target": "Property Database API",
+      "relation": "requires",
+      "properties": {}
+    },
+    {
+      "source": "Request Appraisal",
+      "target": "Appraiser",
+      "relation": "performed_by",
+      "properties": {}
+    },
+    {
+      "source": "Request Appraisal",
+      "target": "Rural Property Appraisal",
+      "relation": "conditional_on",
+      "properties": {}
+    },
+    {
+      "source": "Rural Property Appraisal",
+      "target": "Rural Property",
+      "relation": "applies_to",
+      "properties": {}
+    },
+    {
+      "source": "Rural Property Appraisal",
+      "target": "Special Appraisal Form",
+      "relation": "requires",
+      "properties": {}
+    },
+    {
+      "source": "Loan Application",
+      "target": "Check NM Mortgage Rule 12",
+      "relation": "requires",
+      "properties": {}
+    },
+    {
+      "source": "Check NM Mortgage Rule 12",
+      "target": "New Mexico",
+      "relation": "applies_to",
+      "properties": {}
+    },
+    {
+      "source": "Check NM Mortgage Rule 12",
+      "target": "Regulatory DB",
+      "relation": "requires",
+      "properties": {}
+    },
+    {
+      "source": "Loan Application",
+      "target": "Check TX Mortgage Rule 7",
+      "relation": "requires",
+      "properties": {}
+    },
+    {
+      "source": "Check TX Mortgage Rule 7",
+      "target": "Texas",
+      "relation": "applies_to",
+      "properties": {}
+    },
+    {
+      "source": "Check TX Mortgage Rule 7",
+      "target": "Regulatory DB",
+      "relation": "requires",
+      "properties": {}
+    },
+    {
+      "source": "Loan Application",
+      "target": "Generate Approval Document",
+      "relation": "precedes",
+      "properties": {}
+    },
+    {
+      "source": "Generate Approval Document",
+      "target": "Document Gen API",
+      "relation": "requires",
+      "properties": {}
+    },
+    {
+      "source": "Generate Approval Document",
+      "target": "Loan Officer",
+      "relation": "performed_by",
+      "properties": {}
+    }
+  ],
+  "metadata": {
+    "name": "Mortgage Underwriting",
+    "description": "Knowledge graph for mortgage underwriting procedures",
+    "version": "1.0",
+    "created_at": "2025-01-15"
+  }
+}

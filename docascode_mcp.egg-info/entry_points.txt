@@ -1,0 +1,2 @@
+[console_scripts]
+docascode-mcp = mcp_server.cli:main

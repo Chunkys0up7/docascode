@@ -1,0 +1,92 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "docascode-mcp"
+version = "0.1.0"
+description = "MCP service for document creation, transformation, and cataloguing with knowledge graph integration"
+authors = [{name = "DocAsCode Team"}]
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+
+dependencies = [
+    "mcp>=0.9.0",
+    "networkx>=3.2,<4",
+    "pandas>=2.2,<3",
+    "sentence-transformers>=2.2,<3",
+    "chromadb>=0.4,<1",
+    "markdown>=3.5,<4",
+    "beautifulsoup4>=4.12,<5",
+    "jinja2>=3.1,<4",
+    "pydantic>=2.5,<3",
+    "pydantic-settings>=2.0,<3",
+    "typer>=0.9,<1",
+    "loguru>=0.7,<1",
+    "python-dotenv>=1.0,<2",
+    "aiofiles>=23.0,<24",
+    "sqlalchemy>=2.0,<3",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4,<8",
+    "pytest-asyncio>=0.21,<1",
+    "pytest-cov>=4.1,<5",
+    "black>=23.0,<24",
+    "ruff>=0.1,<1",
+    "mypy>=1.7,<2",
+]
+
+nlp = [
+    "spacy>=3.7,<4",
+]
+
+pdf = [
+    "pypdf>=3.17,<4",
+    "reportlab>=4.0,<5",
+]
+
+docx = [
+    "python-docx>=1.1,<2",
+]
+
+advanced = [
+    "neo4j>=5.14,<6",
+    "pypandoc>=1.12,<2",
+]
+
+all = [
+    "docascode-mcp[nlp,pdf,docx,advanced]",
+]
+
+[project.scripts]
+docascode-mcp = "mcp_server.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["mcp_server*"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = "-v --cov=mcp_server --cov-report=term-missing"
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
