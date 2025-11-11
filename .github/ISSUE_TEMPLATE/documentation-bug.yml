@@ -1,0 +1,84 @@
+name: 📚 Documentation Bug
+description: Report an error, typo, or issue in the documentation
+title: "[Docs Bug]: "
+labels: ["documentation", "bug"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve our documentation! Please fill out the information below.
+
+  - type: input
+    id: page-url
+    attributes:
+      label: Page URL
+      description: URL of the documentation page with the issue
+      placeholder: https://chunkys0up7.github.io/docascode/...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: Type of Issue
+      description: What kind of documentation issue is this?
+      options:
+        - Typo or grammar error
+        - Broken link
+        - Incorrect information
+        - Missing information
+        - Outdated content
+        - Formatting issue
+        - Code example doesn't work
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Describe the issue you found
+      placeholder: |
+        What's wrong with the documentation?
+        What did you expect to see?
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-content
+    attributes:
+      label: Current Content
+      description: Copy/paste the problematic content (if applicable)
+      placeholder: |
+        Paste the incorrect or problematic text here...
+      render: markdown
+
+  - type: textarea
+    id: suggested-fix
+    attributes:
+      label: Suggested Fix
+      description: How should it be corrected? (optional but helpful)
+      placeholder: |
+        Suggested correction or improvement...
+      render: markdown
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Add any other context, screenshots, or examples
+      placeholder: |
+        Screenshots, links to related pages, etc...
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I have searched existing issues to avoid duplicates
+          required: true
+        - label: I have checked this is about documentation (not a product bug)
+          required: true

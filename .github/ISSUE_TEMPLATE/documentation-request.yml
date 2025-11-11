@@ -1,0 +1,110 @@
+name: 📝 Documentation Request
+description: Request new documentation or significant additions
+title: "[Docs Request]: "
+labels: ["documentation", "enhancement"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping us improve documentation! Tell us what you'd like to see documented.
+
+  - type: dropdown
+    id: doc-type
+    attributes:
+      label: Type of Documentation
+      description: What type of documentation are you requesting?
+      options:
+        - Concept (understanding/explanation)
+        - Tutorial (step-by-step learning)
+        - How-To Guide (solve a problem)
+        - Reference (API/technical specs)
+        - FAQ/Troubleshooting
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: topic
+    attributes:
+      label: Topic/Feature
+      description: What topic or feature needs documentation?
+      placeholder: |
+        Example: "How to configure custom authentication providers"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What problem would this documentation solve?
+      placeholder: |
+        Example: "Users are confused about setting up custom auth..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: audience
+    attributes:
+      label: Target Audience
+      description: Who is this documentation for?
+      placeholder: |
+        Example: "Developers integrating our system with external auth providers"
+    validations:
+      required: true
+
+  - type: textarea
+    id: content-outline
+    attributes:
+      label: Content Outline
+      description: What should this documentation cover? (optional but helpful)
+      placeholder: |
+        1. Overview of custom auth
+        2. Configuration steps
+        3. Example implementations
+        4. Troubleshooting
+      render: markdown
+
+  - type: textarea
+    id: related-docs
+    attributes:
+      label: Related Documentation
+      description: Links to related existing documentation (if any)
+      placeholder: |
+        - https://...
+        - https://...
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How urgent is this documentation?
+      options:
+        - Low - Nice to have
+        - Medium - Would help many users
+        - High - Critical gap in documentation
+        - Urgent - Blocking users
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other information that would help
+      placeholder: |
+        Related issues, user feedback, support tickets, etc...
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I have searched existing documentation and issues
+          required: true
+        - label: This documentation doesn't already exist
+          required: true
+        - label: I can provide input or review if needed
+          required: false
