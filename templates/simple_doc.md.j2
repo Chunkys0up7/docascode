@@ -1,0 +1,18 @@
+# {{ title }}
+
+{% if author %}
+**Author:** {{ author }}
+{% endif %}
+
+{% if date %}
+**Date:** {{ date }}
+{% endif %}
+
+---
+
+{{ content }}
+
+{% if tags %}
+
+**Tags:** {{ tags|bullet_list }}
+{% endif %}
