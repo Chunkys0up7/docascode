@@ -1,0 +1,25 @@
+# Documentation ownership
+# These owners will be requested for review when someone opens a pull request.
+# Order matters - later matches take precedence
+
+# Default documentation owners
+/site_docs/ @Chunkys0up7
+
+# Specific documentation sections
+# Uncomment and customize as your team grows
+
+# /site_docs/concepts/ @team-architects
+# /site_docs/reference/ @team-leads
+# /site_docs/getting-started/ @team-docs
+# /site_docs/samples/ @team-engineering
+
+# Configuration and infrastructure
+/mkdocs.yml @Chunkys0up7
+/.github/ @Chunkys0up7
+/requirements.txt @Chunkys0up7
+
+# Generated documentation
+# /site_docs/generated/ @team-automation
+
+# Contributing guidelines
+/site_docs/contributing/ @Chunkys0up7
