@@ -53,7 +53,7 @@ docx = [
 ]
 
 advanced = [
-    "neo4j>=5.14,<6",
+    "neo4j>=5.14,<7",
     "pypandoc>=1.12,<2",
 ]
 
